@@ -1,0 +1,119 @@
+﻿@model IEnumerable<GinaBlog.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="row">
+    <div class="col-md-9">
+        @foreach (var item in Model)
+        {
+        <article>
+            <h3> @Html.ActionLink(item.Title, "Details", new { id = item.PostId })  </h3>
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.DisplayFor(modelItem => item.Author.UserName)
+                </div>
+                <div class="col-md-4">
+                    @Html.DisplayFor(model => item.Category.Name)
+                </div>
+                <div class="col-md-4">
+                    @Html.DisplayFor(model => item.DatePosted)
+                </div>
+
+            </div>
+            
+            <h4>
+
+                @Html.DisplayFor(model => item.Subtitle)
+            </h4>
+            <p>
+                @Html.DisplayFor(model => item.Content)
+
+            </p>
+           @if (item.ImageURLs.Count > 0)
+           {<img src=@item.ImageURLs.ElementAt(0)>}
+
+
+        </article>
+
+        }
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+
+
+
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Author.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatePosted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flagged)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subtitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatePosted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flagged)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
+
+         
+        </td>
+    </tr>
+}
+
+</table>
