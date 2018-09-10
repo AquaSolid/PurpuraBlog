@@ -25,6 +25,12 @@ _UpgradeReport_Files/
 FilipBlog/FilipBlog/bin/
 FilipBlog/FilipBlog/obj/
 FilipBlog/FilipBlog/TestResults/
+FilipBlog/bin/
+FilipBlog/obj/
+FilipBlog/TestResults/
+bin/
+obj/
+TestResults/
 ###################
 # Web publish log #
 ###################
