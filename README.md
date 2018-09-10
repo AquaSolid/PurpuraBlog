@@ -1,6 +1,5 @@
 # PurpuraBlog
 
-Filip
-Dushica
-Gina
-Dushica2
+1. Gina
+2. Filip
+3. Dushica
