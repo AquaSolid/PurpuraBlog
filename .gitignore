@@ -22,6 +22,7 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
+# if a subfolder is named bin it will also be ignored
 bin/
 obj/
 TestResults/
