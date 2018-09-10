@@ -22,9 +22,9 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
-bin/
-obj/
-TestResults/
+FilipBlog/FilipBlog/bin/
+FilipBlog/FilipBlog/obj/
+FilipBlog/FilipBlog/TestResults/
 ###################
 # Web publish log #
 ###################
