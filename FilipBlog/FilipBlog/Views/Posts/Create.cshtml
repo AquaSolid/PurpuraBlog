@@ -63,12 +63,10 @@
     @for (int i = 0; i < Model.Categories.Length; i++)
     {
         
-
-
     <div class="form-group">
         @Html.DisplayFor(model => Model.Categories[i].CategoryName)
         @Html.HiddenFor(model => Model.Categories[i].CategoryName)
-        <div class="col-md-10">
+        <div class="col-md-6">
             <div class="checkbox">
                 @Html.EditorFor(model => Model.Categories[i].IsSelected)
                 @Html.ValidationMessageFor(model => Model.Categories[i].IsSelected, "", new { @class = "text-danger" })
@@ -76,25 +74,7 @@
         </div>
     </div>
 
-
-
-
-
-
-        /*   @Html.DisplayFor(model => Model.Categories.ElementAt(i).CategoryName)
-           @Html.EditorFor(model => Model.Categories.ElementAt(i).IsSelected)
-
-           @Html.HiddenFor(model => Model.Categories.ElementAt(i).IsSelected)
-           @Html.HiddenFor(model => Model.Categories.ElementAt(i).CategoryName)*/
-        /* @Html.HiddenFor(model => Model.Categories.ElementAt(i).Category.CategoryID)
-         @Html.HiddenFor(model => Model.Categories.ElementAt(i).Category.DateOfCreation)
-         @Html.HiddenFor(model => Model.Categories.ElementAt(i).Category.DateOfModification)
-         @Html.HiddenFor(model => Model.Categories.ElementAt(i).Category.Posts)
-         @Html.DisplayFor(model => Model.Categories.ElementAt(i).Category.Name)
-
-
-         */
-
+   
 
     }
 

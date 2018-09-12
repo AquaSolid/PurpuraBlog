@@ -50,7 +50,6 @@ namespace FilipBlog.Controllers {
             rawPost.Categories = db.Categories
                 .Select(c => new CategoryIntermediate
                 {
-
                     CategoryName = c.Name,
                     IsSelected = false
                 })
@@ -60,23 +59,7 @@ namespace FilipBlog.Controllers {
             return View(rawPost);
         }
 
-     /*   public class RawPost {
-            public int PostId { get; set; }
-
-            public string Title { get; set; }
-            public string Subtitle { get; set; }
-            public string Content { get; set; }
-            public string AuthorRefId { get; set; }
-            public string ImageURLs { get; set; }
-            public string VideoURLs { get; set; }
-
-            public DateTime DateOfCreation { get; set; }
-            public DateTime DateOfModification { get; set; }
-            public bool IsFlagged { get; set; }
-
-            public ICollection<CategoryIntermediate> Categories { get; set; }
-
-        }*/
+   
 
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -85,22 +68,26 @@ namespace FilipBlog.Controllers {
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged,ImageURLs,Categories")] RawPost rawPost) {
             Debug.WriteLine("Fico Debugging");
+           
+
+
+
 
             List<ImageLink> imageLinks = rawPost.ImageURLs
-                    .Split(Environment.NewLine.ToCharArray())
+                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                     .ToList()
                     .Select(str => new ImageLink { URL = str, PostRefId = rawPost.PostId })
                     .ToList();
             List<VideoLink> videoLinks = rawPost.ImageURLs
-                    .Split(Environment.NewLine.ToCharArray())
+                   .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                     .ToList()
                     .Select(str => new VideoLink { URL = str, PostRefId = rawPost.PostId })
                     .ToList();
-         
+
 
             List<String> categoryNames = rawPost.Categories
                 .Where(c => c.IsSelected)
-                .Select(c=>c.CategoryName)
+                .Select(c => c.CategoryName)
                 .ToList();
 
             List<Category> categories = db.Categories.Where(c => categoryNames.Contains(c.Name))
@@ -130,11 +117,12 @@ namespace FilipBlog.Controllers {
             Debug.WriteLine(post);
 
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 Debug.WriteLine("Saved to DB");
                 db.Posts.Add(post);
                 db.SaveChanges();
-                
+
                 return RedirectToAction("Index");
             }
 
