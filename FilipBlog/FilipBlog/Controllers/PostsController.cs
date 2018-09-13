@@ -217,13 +217,55 @@ namespace FilipBlog.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+
+        public ActionResult LikePost(int postId)
+        {
+            Post post = db.Posts.Find(postId);
+            ApplicationUser liker = db.Users.Find(User.Identity.GetUserId());
+
+            if (post.Dislikers.Contains(liker))
+                post.Dislikers.Remove(liker);
+
+            if (liker.PostsDisliked.Contains(post))
+                liker.PostsDisliked.Remove(post);
+
+            if (!post.Likers.Contains(liker))
+                post.Likers.Add(liker);
+
+            if (!liker.PostsLiked.Contains(post))
+                liker.PostsLiked.Add(post);
+
+            db.SaveChanges();
+
+            return PartialView("_LikeDislikeCount", post);
+        }
+
+
+        public ActionResult DislikePost(int postId)
+        {
+            Post post = db.Posts.Find(postId);
+            ApplicationUser disliker = db.Users.Find(User.Identity.GetUserId());
+
+            if (post.Likers.Contains(disliker))
+                post.Likers.Remove(disliker);
+
+            if (disliker.PostsLiked.Contains(post))
+                disliker.PostsLiked.Remove(post);
+
+            if (!post.Dislikers.Contains(disliker))
+                post.Dislikers.Add(disliker);
+
+            if (!disliker.PostsDisliked.Contains(post))
+                disliker.PostsDisliked.Add(post);
+
+            db.SaveChanges();
+
+            return PartialView("_LikeDislikeCount", post);
+        }
+
+
     }
-
-   
-
-
-
-
-
-
 }

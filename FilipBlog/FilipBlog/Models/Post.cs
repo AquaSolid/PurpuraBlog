@@ -11,13 +11,16 @@ namespace FilipBlog.Models {
         public Post() {
             this.ImageURLs = new List<ImageLink>();
             this.VideoURLs = new List<VideoLink>();
-            this.Likes = new List<Like>();
-            this.Dislikes = new List<Dislike>();
+          //  this.Likes = new List<Like>();
+         //   this.Dislikes = new List<Dislike>();
             this.Reports = new List<Report>();
             this.Comments = new List<Comment>();
             this.Categories = new List<Category>();
             this.DateOfModification = DateTime.Now;
             this.DateOfCreation = DateTime.Now;
+
+            this.Likers = new List<ApplicationUser>();
+            this.Dislikers = new List<ApplicationUser>();
         }
 
         [Key]
@@ -41,9 +44,12 @@ namespace FilipBlog.Models {
         public virtual ICollection<Category> Categories { get; set; } 
 
         // a user can like multiple articles and an article can be liked by multiple users. [m2m]
-        public virtual ICollection<Like> Likes { get; set; } 
-        public virtual ICollection<Dislike> Dislikes { get; set; } 
+       // public virtual ICollection<Like> Likes { get; set; } 
+        //public virtual ICollection<Dislike> Dislikes { get; set; } 
         public virtual ICollection<Report> Reports { get; set; }
+
+        public virtual ICollection<ApplicationUser> Likers{ get; set; }
+        public virtual ICollection<ApplicationUser> Dislikers { get; set; }
 
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfModification { get; set; }
