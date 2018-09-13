@@ -10,14 +10,86 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FilipBlog.Models;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Net;
 
 namespace FilipBlog.Controllers {
     [Authorize]
     public class AccountController : Controller {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController() {
+        }
+
+        public ActionResult Index() {
+            var users = db.Users;
+            
+            return View(users.ToList());
+        }
+
+        // GET: Albums/Details/5s
+        public ActionResult Details(string id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(id);
+            if (user == null) {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+        // GET: Albums/Details/5s
+        public ActionResult Edit(string id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = _userManager.FindById(id);
+            if (user == null) {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+
+        public ActionResult AddUserToRoleById(string id) {
+            AddUserToRoleById model = new AddUserToRoleById
+            {
+                Roles = new List<string>()
+            };
+            model.Roles.Add("Admin");
+            model.Roles.Add("Editor");
+            model.Roles.Add("Moderator");
+            model.Roles.Add("User");
+            model.Roles.Add("Banned");
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddUserToRoleById(AddUserToRoleById model) {
+            var user = UserManager.FindById(model.UserId);
+            UserManager.AddToRole(user.Id, model.Role);
+            return RedirectToAction("Index", "Posts");
+        }
+        public ActionResult AddUserToRole() {
+            AddUserToRole model = new AddUserToRole
+            {
+                Roles = new List<string>()
+            };
+            model.Roles.Add("Admin");
+            model.Roles.Add("Editor");
+            model.Roles.Add("Moderator");
+            model.Roles.Add("User");
+            model.Roles.Add("Banned");
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddUserToRole(AddUserToRole model) {
+            var user = UserManager.FindByName(model.UserName);
+            UserManager.AddToRole(user.Id, model.Role);
+            return RedirectToAction("Index", "Posts");
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager) {

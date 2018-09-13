@@ -63,24 +63,25 @@
             @Html.DisplayNameFor(model => model.Categories)
         </dt>
         <dd>
-            @foreach (var category in Model.Categories)
-            {
-                <p>@Html.DisplayFor(item => category.Name)</p>
-            }
+            <ul>
+                @foreach (var category in Model.Categories) {
+                    <li>@Html.DisplayFor(item => category.Name)</li>
+                }
+            </ul>
         </dd>
 
         <dd>
-            @foreach (var ImageUrl in Model.ImageURLs)
-            {
-                <img src=@Html.DisplayFor(item=>ImageUrl.URL)>
-            }
+            <div class="col-md-3">
+                @foreach (var ImageUrl in Model.ImageURLs) {
+                    <img class="img-responsive" src=@Html.DisplayFor(item=>ImageUrl.URL)>
+                }
+            </div>
         </dd>
 
         <h4>Comments:</h4>
         <dd>
             <ul>
-                @foreach (var comment in Model.Comments)
-                {
+                @foreach (var comment in Model.Comments) {
                     <li>@Html.DisplayFor(item => comment.Content)</li>
                 }
             </ul>
@@ -90,8 +91,8 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Report", "Create", "Reports",  new { postId = Model.PostId },null)
-    
+    @Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, null)
+
 </p>
 
 @*@RenderPage("~/Views/Comments/CommentList.cshtml")
