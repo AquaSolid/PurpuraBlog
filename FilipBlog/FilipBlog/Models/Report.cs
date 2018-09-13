@@ -8,7 +8,7 @@ using System.Web;
 namespace FilipBlog.Models {
     public class Report {
         public Report() {
-            this.Posts = new List<Post>();
+           // this.Posts = new List<Post>();
         }
 
         [Key] public int ReportId { get; set; }
@@ -21,6 +21,6 @@ namespace FilipBlog.Models {
         public string ReporterRefId { get; set; }
         public virtual ApplicationUser Reporter { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
+      //  public virtual ICollection<Post> Posts { get; set; }
     }
 }

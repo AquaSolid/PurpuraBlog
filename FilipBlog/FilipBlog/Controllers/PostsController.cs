@@ -11,24 +11,30 @@ using System.Web.Security;
 using FilipBlog.Models;
 using Microsoft.AspNet.Identity;
 
-namespace FilipBlog.Controllers {
-    public class PostsController : Controller {
+namespace FilipBlog.Controllers
+{
+    public class PostsController : Controller
+    {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Posts
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             var posts = db.Posts.Include(p => p.Author).Include(p => p.ImageURLs);
             return View(posts.ToList());
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id) {
-            if (id == null) {
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Include(p => p.Comments).Include(p => p.Author).Single(p => p.PostId == id);
 
-            if (post == null) {
+            if (post == null)
+            {
                 return HttpNotFound();
             }
             return View(post);
@@ -43,11 +49,12 @@ namespace FilipBlog.Controllers {
         //}
 
         // GET: Posts/Create
-        public ActionResult Create() {
+        public ActionResult Create()
+        {
             ViewBag.Message = User.Identity.GetUserId();
             RawPost rawPost = new RawPost();
 
-            rawPost.Categories = db.Categories
+            rawPost.RawCategories = db.Categories
                 .Select(c => new CategoryIntermediate
                 {
                     CategoryName = c.Name,
@@ -59,39 +66,15 @@ namespace FilipBlog.Controllers {
             return View(rawPost);
         }
 
-   
+
 
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged,ImageURLs,Categories")] RawPost rawPost) {
-            Debug.WriteLine("Fico Debugging");
-           
-
-
-
-
-            List<ImageLink> imageLinks = rawPost.ImageURLs
-                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .ToList()
-                    .Select(str => new ImageLink { URL = str, PostRefId = rawPost.PostId })
-                    .ToList();
-            List<VideoLink> videoLinks = rawPost.ImageURLs
-                   .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .ToList()
-                    .Select(str => new VideoLink { URL = str, PostRefId = rawPost.PostId })
-                    .ToList();
-
-
-            List<String> categoryNames = rawPost.Categories
-                .Where(c => c.IsSelected)
-                .Select(c => c.CategoryName)
-                .ToList();
-
-            List<Category> categories = db.Categories.Where(c => categoryNames.Contains(c.Name))
-                .AsEnumerable().ToList();
+        public ActionResult Create([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged,RawImageURLs,RawCategories")] RawPost rawPost)
+        {
 
             Post post = new Post
             {
@@ -103,44 +86,80 @@ namespace FilipBlog.Controllers {
                 DateOfCreation = rawPost.DateOfCreation,
                 DateOfModification = rawPost.DateOfModification,
                 IsFlagged = rawPost.IsFlagged,
-                ImageURLs = imageLinks,
+                /*ImageURLs = imageLinks,
                 VideoURLs = videoLinks,
-                Categories = categories
+                Categories = categories*/
             };
 
-
-
-            Debug.WriteLine(ModelState.IsValid);
-            var errors = ModelState.Values.SelectMany(v => v.Errors).Select(b => b.ErrorMessage);
-            Debug.WriteLine(String.Join(Environment.NewLine, errors));
-
-            Debug.WriteLine(post);
-
+            rawPost.RawVideoURLs = rawPost.RawImageURLs;
+            rawPost.Author = db.Users.Find(rawPost.AuthorRefId);
 
             if (ModelState.IsValid)
             {
-                Debug.WriteLine("Saved to DB");
+
                 db.Posts.Add(post);
                 db.SaveChanges();
+
+                var latestId = db.Posts.Where(x => x.Content == rawPost.Content && x.Title == rawPost.Title).Max(x => x.PostId);
+                Post savedPost = db.Posts.Find(latestId);
+
+                List<ImageLink> imageLinks = rawPost.RawImageURLs
+                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                    .ToList()
+                    .Select(str => new ImageLink { URL = str, PostRefId = savedPost.PostId })
+                    .ToList();
+                List<VideoLink> videoLinks = rawPost.RawImageURLs
+                       .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                        .ToList()
+                        .Select(str => new VideoLink { URL = str, PostRefId = savedPost.PostId })
+                        .ToList();
+
+
+                List<String> categoryNames = rawPost.RawCategories
+                    .Where(c => c.IsSelected)
+                    .Select(c => c.CategoryName)
+                    .ToList();
+
+                List<Category> categories = db.Categories.Where(c => categoryNames.Contains(c.Name))
+                    .AsEnumerable().ToList();
+
+                savedPost.ImageURLs = imageLinks;
+                savedPost.VideoURLs = videoLinks;
+                savedPost.Categories = categories;
+
+                foreach (Category c in categories)
+                {
+                    c.Posts.Add(savedPost);
+                }
+
+
+
+                db.ImageLinks.AddRange(imageLinks);
+                db.VideoLinks.AddRange(videoLinks);
+                db.SaveChanges();
+
+
+
 
                 return RedirectToAction("Index");
             }
 
-            db.ImageLinks.AddRange(imageLinks);
-            db.VideoLinks.AddRange(videoLinks);
-            db.SaveChanges();
 
-            ViewBag.AuthorRefId = new SelectList(db.Users, "Id", "FirstName", post.AuthorRefId);
-            return View(post);
+
+
+            return View(rawPost);
         }
 
         // GET: Posts/Edit/5
-        public ActionResult Edit(int? id) {
-            if (id == null) {
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Find(id);
-            if (post == null) {
+            if (post == null)
+            {
                 return HttpNotFound();
             }
             ViewBag.AuthorRefId = new SelectList(db.Users, "Id", "FirstName", post.AuthorRefId);
@@ -152,8 +171,10 @@ namespace FilipBlog.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged")] Post post) {
-            if (ModelState.IsValid) {
+        public ActionResult Edit([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -163,12 +184,15 @@ namespace FilipBlog.Controllers {
         }
 
         // GET: Posts/Delete/5
-        public ActionResult Delete(int? id) {
-            if (id == null) {
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Find(id);
-            if (post == null) {
+            if (post == null)
+            {
                 return HttpNotFound();
             }
             return View(post);
@@ -177,15 +201,18 @@ namespace FilipBlog.Controllers {
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id) {
+        public ActionResult DeleteConfirmed(int id)
+        {
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing) {
-            if (disposing) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
                 db.Dispose();
             }
             base.Dispose(disposing);

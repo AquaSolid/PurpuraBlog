@@ -69,6 +69,13 @@
             }
         </dd>
 
+        <dd>
+            @foreach (var ImageUrl in Model.ImageURLs)
+            {
+                <img src=@Html.DisplayFor(item=>ImageUrl.URL)>
+            }
+        </dd>
+
         <h4>Comments:</h4>
         <dd>
             <ul>

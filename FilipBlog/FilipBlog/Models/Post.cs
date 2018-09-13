@@ -16,6 +16,8 @@ namespace FilipBlog.Models {
             this.Reports = new List<Report>();
             this.Comments = new List<Comment>();
             this.Categories = new List<Category>();
+            this.DateOfModification = DateTime.Now;
+            this.DateOfCreation = DateTime.Now;
         }
 
         [Key]
@@ -33,15 +35,15 @@ namespace FilipBlog.Models {
         // One post can have Multiple images [1-to-M] 
         public virtual ICollection<ImageLink> ImageURLs { get; set; }
         public virtual ICollection<VideoLink> VideoURLs { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; } // CommentPostDBContext.cs resolves this dilemma 
+        public virtual ICollection<Comment> Comments { get; set; } 
 
         // a category can cover multiple articles and an article can be categorized under by multiple categories. [m2m]
-        public virtual ICollection<Category> Categories { get; set; } // CategoryPostDBContext.cs resolves this dilemma 
+        public virtual ICollection<Category> Categories { get; set; } 
 
         // a user can like multiple articles and an article can be liked by multiple users. [m2m]
-        public virtual ICollection<Like> Likes { get; set; } // LikePostDBContext.cs resolves this dilemma 
-        public virtual ICollection<Dislike> Dislikes { get; set; } // DislikePostDBContext.cs resolves this dilemma 
-        public virtual ICollection<Report> Reports { get; set; } // ReportPostDBContext.cs resolves this dilemma 
+        public virtual ICollection<Like> Likes { get; set; } 
+        public virtual ICollection<Dislike> Dislikes { get; set; } 
+        public virtual ICollection<Report> Reports { get; set; }
 
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfModification { get; set; }
