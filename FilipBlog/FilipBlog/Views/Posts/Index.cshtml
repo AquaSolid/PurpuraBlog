@@ -60,9 +60,10 @@
             @Html.DisplayFor(modelItem => item.IsFlagged)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PostId }) |
+            @Html.ActionLink("Report", "Create", "Reports", new { postId = item.PostId }, null)
         </td>
     </tr>
 }

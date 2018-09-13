@@ -89,8 +89,12 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Report", "Create", "Reports",  new { postId = Model.PostId },null)
+    
 </p>
 
 @*@RenderPage("~/Views/Comments/CommentList.cshtml")
 *@
+
+@Html.Partial("~/Views/Comments/Index.cshtml", Model.Comments)

@@ -8,7 +8,10 @@ using System.Web;
 namespace FilipBlog.Models {
     public class Report {
         public Report() {
-           // this.Posts = new List<Post>();
+            // this.Posts = new List<Post>();
+
+            DateOfCreation = DateTime.Now;
+            DateOfModification = DateTime.Now;
         }
 
         [Key] public int ReportId { get; set; }
@@ -21,6 +24,10 @@ namespace FilipBlog.Models {
         public string ReporterRefId { get; set; }
         public virtual ApplicationUser Reporter { get; set; }
 
-      //  public virtual ICollection<Post> Posts { get; set; }
+        [ForeignKey("Post")]
+        public int Post_PostId { get; set; }
+        public virtual Post Post { get; set; }
+
+        //  public virtual ICollection<Post> Posts { get; set; }
     }
 }
