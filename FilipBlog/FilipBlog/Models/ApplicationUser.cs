@@ -28,6 +28,12 @@ namespace FilipBlog.Models {
         public virtual ICollection<Post> PostsReported { get; set; }
         public virtual ICollection<Comment> CommentsCommentedOn { get; set; }
 
+        public String FullName ()
+        {
+            return String.Format("{0} {1}", FirstName, LastName);
+        }
+
+
         public ApplicationUser() {
             this.PostsAuthored = new List<Post>();
             this.PostsLiked = new List<Post>();

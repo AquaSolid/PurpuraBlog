@@ -1,0 +1,13 @@
+﻿@model FilipBlog.Models.Post
+
+<div class="row">
+    <div class="col-md-4">
+        <img src=@Model.ImageURLs.FirstOrDefault()>
+    </div>
+    <div class="col-md-8">
+        <h3> @Model.Title</h3>
+        
+        @Model.Subtitle
+    </div>
+
+</div>

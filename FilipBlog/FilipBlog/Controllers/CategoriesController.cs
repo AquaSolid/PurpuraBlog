@@ -20,6 +20,11 @@ namespace FilipBlog.Controllers
             return View(db.Categories.ToList());
         }
 
+        public ActionResult List()
+        {
+            return PartialView("_CategoryList", db.Categories.ToList());
+        }
+
         // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {

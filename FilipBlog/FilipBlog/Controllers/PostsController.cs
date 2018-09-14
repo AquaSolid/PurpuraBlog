@@ -73,74 +73,27 @@ namespace FilipBlog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged,RawImageURLs,RawCategories")] RawPost rawPost)
+        public ActionResult Create([Bind(Include = "Post,RawImageURLs,RawCategories")] RawPost rawPost)
         {
 
-            Post post = new Post
-            {
-                PostId = rawPost.PostId,
-                Title = rawPost.Title,
-                Subtitle = rawPost.Subtitle,
-                Content = rawPost.Content,
-                AuthorRefId = rawPost.AuthorRefId,
-                DateOfCreation = rawPost.DateOfCreation,
-                DateOfModification = rawPost.DateOfModification,
-                IsFlagged = rawPost.IsFlagged,
-                /*ImageURLs = imageLinks,
-                VideoURLs = videoLinks,
-                Categories = categories*/
-            };
+            
 
             rawPost.RawVideoURLs = rawPost.RawImageURLs;
-            rawPost.Author = db.Users.Find(rawPost.AuthorRefId);
+            rawPost.Post.Author = db.Users.Find(rawPost.Post.AuthorRefId);
 
             if (ModelState.IsValid)
             {
 
-                db.Posts.Add(post);
+                db.Posts.Add(rawPost.Post);
+                db.Users.Find(rawPost.Post.AuthorRefId).PostsAuthored.Add(rawPost.Post);
                 db.SaveChanges();
 
-                var latestId = db.Posts.Where(x => x.Content == rawPost.Content && x.Title == rawPost.Title).Max(x => x.PostId);
-                Post savedPost = db.Posts.Find(latestId);
-
-                List<ImageLink> imageLinks = rawPost.RawImageURLs
-                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .ToList()
-                    .Select(str => new ImageLink { URL = str, PostRefId = savedPost.PostId })
-                    .ToList();
-                List<VideoLink> videoLinks = rawPost.RawImageURLs
-                       .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                        .ToList()
-                        .Select(str => new VideoLink { URL = str, PostRefId = savedPost.PostId })
-                        .ToList();
-
-
-                List<String> categoryNames = rawPost.RawCategories
-                    .Where(c => c.IsSelected)
-                    .Select(c => c.CategoryName)
-                    .ToList();
-
-                List<Category> categories = db.Categories.Where(c => categoryNames.Contains(c.Name))
-                    .AsEnumerable().ToList();
-
-                savedPost.ImageURLs = imageLinks;
-                savedPost.VideoURLs = videoLinks;
-                savedPost.Categories = categories;
-
-                foreach (Category c in categories)
-                {
-                    c.Posts.Add(savedPost);
-                }
-
-
-
-                db.ImageLinks.AddRange(imageLinks);
-                db.VideoLinks.AddRange(videoLinks);
+                var latestId = db.Posts.Where(x => x.Content == rawPost.Post.Content && x.Title == rawPost.Post.Title).Max(x => x.PostId);
+             
+                rawPost.updatePost(latestId, db.Categories.ToList() );
+                db.ImageLinks.AddRange(rawPost.Post.ImageURLs);
+                db.VideoLinks.AddRange(rawPost.Post.VideoURLs);
                 db.SaveChanges();
-
-
-
-
                 return RedirectToAction("Index");
             }
 
@@ -162,8 +115,12 @@ namespace FilipBlog.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorRefId = new SelectList(db.Users, "Id", "FirstName", post.AuthorRefId);
-            return View(post);
+            RawPost rawPost = new RawPost(post, db.Categories.ToList());
+
+           
+
+
+            return View(rawPost);
         }
 
         // POST: Posts/Edit/5
@@ -171,16 +128,26 @@ namespace FilipBlog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,Title,Subtitle,Content,AuthorRefId,DateOfCreation,DateOfModification,IsFlagged")] Post post)
+        public ActionResult Edit([Bind(Include = "Post,RawImageURLs,RawCategories")] RawPost rawPost)
         {
+            
+
+            rawPost.updatePost(rawPost.Post.PostId, db.Categories.ToList());
             if (ModelState.IsValid)
-            {
-                db.Entry(post).State = EntityState.Modified;
+            {   
+              /*  foreach (ImageLink image in rawPost.Post.ImageURLs)
+                {   if (db.ImageLinks.ToList().Contains(image))
+                        db.Entry(image).State = EntityState.Modified;
+                    else
+                        db.ImageLinks.Add(image);
+                }
+*/
+                db.Entry(rawPost.Post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorRefId = new SelectList(db.Users, "Id", "FirstName", post.AuthorRefId);
-            return View(post);
+        
+            return View(rawPost);
         }
 
         // GET: Posts/Delete/5

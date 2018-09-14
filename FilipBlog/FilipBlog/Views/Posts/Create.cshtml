@@ -18,37 +18,37 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Post.Title, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Post.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Post.Title, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Subtitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Post.Subtitle, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Subtitle, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Subtitle, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Post.Subtitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Post.Subtitle, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Post.Content, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.Post.Content, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Post.Content, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.RawImageURLs, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextAreaFor(model => model.RawImageURLs, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Post.Content, "", new { @class = "text-danger" })
         </div>
     </div>
-    @Html.HiddenFor(model => model.AuthorRefId, new { Value = User.Identity.GetUserId() })
-    @Html.HiddenFor(model => model.DateOfCreation)
-    @Html.HiddenFor(model => model.DateOfModification)
-    @Html.HiddenFor(model => model.IsFlagged, new { Value = false })
+    @Html.HiddenFor(model => model.Post.AuthorRefId, new { Value = User.Identity.GetUserId() })
+    @Html.HiddenFor(model => model.Post.DateOfCreation)
+    @Html.HiddenFor(model => model.Post.DateOfModification)
+    @Html.HiddenFor(model => model.Post.IsFlagged, new { Value = false })
     @*<div class="form-group">
             @Html.LabelFor(model => model.IsFlagged, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -61,8 +61,7 @@
 
    
     @for (int i = 0; i < Model.RawCategories.Length; i++)
-    {
-        
+    {        
     <div class="form-group">
         @Html.DisplayFor(model => Model.RawCategories[i].CategoryName)
         @Html.HiddenFor(model => Model.RawCategories[i].CategoryName)
@@ -73,9 +72,6 @@
             </div>
         </div>
     </div>
-
-   
-
     }
 
 

@@ -1,11 +1,27 @@
 ﻿@model IEnumerable<FilipBlog.Models.Post>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Index</h2>
+@*
+
+    @Ajax.ActionLink("List categories", "List", "Categories",  new AjaxOptions {
+       UpdateTargetId = "categories",
+       InsertionMode=InsertionMode.Replace,
+       HttpMethod="GET"
+     } )
+
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#link').click();
+            });
+    </script>
+*@
+
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,7 +29,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Author.FirstName)
+            Author
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -35,37 +51,36 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subtitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfCreation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfModification)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsFlagged)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PostId }) |
-            @Html.ActionLink("Report", "Create", "Reports", new { postId = item.PostId }, null)
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Author.FullName(), "Details", "ApplicationUsers", new { id = item.AuthorRefId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfModification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFlagged)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PostId }) |
+                @Html.ActionLink("Report", "Create", "Reports", new { postId = item.PostId }, null)
+            </td>
+        </tr>
+    }
 </table>

@@ -31,5 +31,7 @@ namespace FilipBlog.Models {
             Database.SetInitializer<ApplicationDbContext>(null);
             base.OnModelCreating(modelBuilder);
         }
+
+      
     }
 }
