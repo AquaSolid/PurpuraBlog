@@ -1,120 +1,119 @@
-﻿@model FilipBlog.Models.Post
+﻿@using Microsoft.AspNet.Identity
+@model FilipBlog.Models.Post
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@section scripts{
-
-    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Details</h2>
 <div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Author.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Author.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Subtitle)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Subtitle)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfCreation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DateOfCreation)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfModification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DateOfModification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IsFlagged)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsFlagged)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Author.UserName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Author.UserName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Categories)
-        </dt>
-        <dd>
-            @foreach (var category in Model.Categories)
-            {
-                <p>@Html.DisplayFor(item => category.Name)</p>
-            }
-        </dd>
-        <dd>
-            @foreach (var ImageUrl in Model.ImageURLs)
-            {
-                <img src=@Html.DisplayFor(item=>ImageUrl.URL)>
-            }
-        </dd>
-        <h4>Comments:</h4>
-        <dd>
-            <ul>
-                @foreach (var comment in Model.Comments)
-                {
-                    <li>@Html.DisplayFor(item => comment.Content)</li>
-                }
-            </ul>
-        </dd>
-    </dl>
+	<h4>Post</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Author.FirstName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Author.FirstName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Title)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Title)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Subtitle)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Subtitle)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Content)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Content)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.DateOfCreation)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.DateOfCreation)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.DateOfModification)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.DateOfModification)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.IsFlagged)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.IsFlagged)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Author.UserName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Author.UserName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Categories)
+		</dt>
+		<dd>
+			@foreach (var category in Model.Categories)
+			{
+				<p>@Html.DisplayFor(item => category.Name)</p>
+			}
+		</dd>
+		<dd>
+			@foreach (var ImageUrl in Model.ImageURLs)
+			{
+				<img src=@Html.DisplayFor(item => ImageUrl.URL)>
+			}
+		</dd>
+		<h4>Comments:</h4>
+		<dd>
+			<ul>
+				@foreach (var comment in Model.Comments)
+				{
+					<li>@Html.DisplayFor(item => comment.Content)</li>
+				}
+			</ul>
+		</dd>
+	</dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, null)
+	@Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+	@Html.ActionLink("Back to List", "Index") |
+	@Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, null)
 
 
-    <div id="likesDislikes">
-        @Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
-    </div>
+	<div id="likesDislikes">
+		@Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
+	</div>
 
-    @Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
-    UpdateTargetId = "likesDislikes",
-    InsertionMode=InsertionMode.Replace,
-    HttpMethod="GET"
-     } , new { @class = "btn" })
+	@Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
+	UpdateTargetId = "likesDislikes",
+	InsertionMode = InsertionMode.Replace,
+	HttpMethod = "GET"
+}, new { @class = "btn" })
 
-
-
-    @Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
-    UpdateTargetId = "likesDislikes",
-    InsertionMode=InsertionMode.Replace,
-    HttpMethod="GET"
-     } , new { @class = "btn " })
-
-
+	@Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
+	UpdateTargetId = "likesDislikes",
+	InsertionMode = InsertionMode.Replace,
+	HttpMethod = "GET"
+}, new { @class = "btn " })
 
 
 </p>
 @*@RenderPage("~/Views/Comments/CommentList.cshtml")
 *@
-@Html.Partial("~/Views/Comments/Index.cshtml", Model.Comments)
+
+@Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment() { Post_PostId = Model.PostId })
+
+@*@{Html.RenderAction("_Create.cshtml", "Comments",new {post= Model.PostId}); }*@
+
+@section scripts {
+	@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

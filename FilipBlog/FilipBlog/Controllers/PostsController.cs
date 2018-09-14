@@ -27,11 +27,18 @@ namespace FilipBlog.Controllers
         // GET: Posts/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+			ViewBag.CommenterRefId = new SelectList(db.Users, "Id", "FirstName");
+			ViewBag.Post_PostId = new SelectList(db.Posts, "PostId", "Title");
+
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Include(p => p.Comments).Include(p => p.Author).Single(p => p.PostId == id);
+            Post post = db.Posts
+				.Include(p => p.Comments)
+				.Include(p => p.Author)
+				.Single(p => p.PostId == id);
+
 
             if (post == null)
             {
@@ -185,10 +192,10 @@ namespace FilipBlog.Controllers
             base.Dispose(disposing);
         }
 
+		
 
 
-
-        public ActionResult LikePost(int postId)
+		public ActionResult LikePost(int postId)
         {
             Post post = db.Posts.Find(postId);
             ApplicationUser liker = db.Users.Find(User.Identity.GetUserId());

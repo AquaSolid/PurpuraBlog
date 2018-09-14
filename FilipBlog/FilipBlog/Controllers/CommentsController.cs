@@ -129,6 +129,12 @@ namespace FilipBlog.Controllers
             return RedirectToAction("Index");
         }
 
+		public ActionResult _Create(int post)
+		{
+
+			return View();
+		}
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
