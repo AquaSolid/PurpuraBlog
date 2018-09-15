@@ -37,19 +37,24 @@ namespace FilipBlog.Controllers
 
         // PUT: api/CommentsApi/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public IHttpActionResult PutComment(int id, Comment comment)
         {
+            Comment oldComment = db.Comments.Find(id);
+            oldComment.DateOfModification = DateTime.Now;
+            oldComment.Content = comment.Content;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != comment.CommentId)
+            if (id != oldComment.CommentId)
             {
                 return BadRequest();
             }
 
-            db.Entry(comment).State = EntityState.Modified;
+            db.Entry(oldComment).State = EntityState.Modified;
 
             try
             {

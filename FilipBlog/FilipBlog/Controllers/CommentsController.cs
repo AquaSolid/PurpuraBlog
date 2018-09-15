@@ -143,5 +143,11 @@ namespace FilipBlog.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult ShowComment(int id)
+        {
+            return PartialView("_SingleComment", db.Posts.Find(id).Comments.LastOrDefault());
+        }
     }
 }

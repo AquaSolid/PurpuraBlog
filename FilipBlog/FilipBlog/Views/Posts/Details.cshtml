@@ -72,15 +72,7 @@
                 <img src=@Html.DisplayFor(item => ImageUrl.URL)>
             }
         </dd>
-        <h4>Comments:</h4>
-        <dd>
-            <ul>
-                @foreach (var comment in Model.Comments)
-                {
-                    <li>@Html.DisplayFor(item => comment.Content)</li>
-                }
-            </ul>
-        </dd>
+        
     </dl>
 </div>
 <p>
@@ -108,32 +100,33 @@
 
 </p>
 
-
 <div id="comments">
     @Html.Partial("~/Views/Posts/_CommentList.cshtml", @Model.Comments)
-</div>
-@Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment() {
-    Post_PostId = Model.PostId, CommenterRefId=User.Identity.GetUserId()
-})
+    </div>
+    @Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment() {
+        Post_PostId = Model.PostId, CommenterRefId=User.Identity.GetUserId()
+    })
 
 
-@section scripts {
-    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-    <script>
-        function refreshComments() {
+    @section scripts {
+        @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+        <script>
+            function refreshComments() {
+                
+                $.ajax({
+                   // url: $("#createComment").data('url') + "/"+ @Model.PostId,
+                    url: $("#createComment").data('url') ,
+                    type: 'GET',
 
-            $.ajax({
-                url: $("#createComment").data('url'),
-                type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $('#comments').empty();
+                        $('#comments').append(data);
+                       // $(data).appendTo($('#commentsTable'));
 
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $('#comments').empty();
-                    $('#comments').append(data);
+                    }
+                });
+            }
 
-                }
-            });
-        }
-
-    </script>
-}
+        </script>
+    }
