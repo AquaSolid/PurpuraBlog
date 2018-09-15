@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using FilipBlog.Models;
-
+using Microsoft.AspNet.Identity;
 namespace FilipBlog.Controllers
 {
     public class CommentsApiController : ApiController
@@ -74,6 +74,10 @@ namespace FilipBlog.Controllers
         [ResponseType(typeof(Comment))]
         public IHttpActionResult PostComment(Comment comment)
         {
+            comment.CommenterRefId = User.Identity.GetUserId();
+            comment.DateOfCreation = DateTime.Now;
+            comment.DateOfModification = DateTime.Now;
+            comment.Commenter = db.Users.Find(comment.CommenterRefId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

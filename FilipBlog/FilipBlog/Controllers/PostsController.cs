@@ -240,6 +240,10 @@ namespace FilipBlog.Controllers
             return PartialView("_LikeDislikeCount", post);
         }
 
-
+        public ActionResult ShowComments(int postId)
+        {
+            List<Comment> comms = db.Posts.Find(postId).Comments.ToList();
+            return PartialView("_CommentList", comms);
+        }
     }
 }

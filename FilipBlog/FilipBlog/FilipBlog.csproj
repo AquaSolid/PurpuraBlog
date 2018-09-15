@@ -313,7 +313,6 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
-    <Content Include="Views\Comments\CommentList.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
@@ -339,6 +338,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Comments\_AjaxCreate.cshtml" />
     <Content Include="Views\Comments\_Create.cshtml" />
+    <Content Include="Views\Posts\_CommentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
