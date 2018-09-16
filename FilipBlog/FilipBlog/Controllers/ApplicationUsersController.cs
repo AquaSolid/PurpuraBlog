@@ -125,6 +125,10 @@ namespace FilipBlog.Controllers
         }
 
 
+        public ActionResult Profile (string id)
+        {
+            return View("Profile", db.Users.Find(id));
+        }
 
 
         public ActionResult DisplayPhotoAndName()

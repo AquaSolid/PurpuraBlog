@@ -96,14 +96,14 @@
             <div class="carousel-inner">
 
 
-                <div class="item active">
-                    <img src=@Model.ImageURLs.ElementAt(0).URL>
+                <div class="item active ">
+                    <img class="img-thumbnail"src=@Model.ImageURLs.ElementAt(0).URL>
                 </div>
 
                 @for (int i = 1; i < Model.ImageURLs.Count; i++)
                 {
                     <div class="item">
-                        <img src=@Model.ImageURLs.ElementAt(i).URL>
+                        <img class="img-thumbnail" src=@Model.ImageURLs.ElementAt(i).URL>
                     </div>
                 }
 

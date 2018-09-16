@@ -32,6 +32,6 @@ namespace FilipBlog.Models {
             base.OnModelCreating(modelBuilder);
         }
 
-        
+     
     }
 }

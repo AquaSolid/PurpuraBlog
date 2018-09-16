@@ -186,7 +186,7 @@ namespace FilipBlog.Controllers
                 }
 
                 post.Title = rawPost.Post.Title;
-                post.Subtitle = rawPost.Post.Title;
+                post.Subtitle = rawPost.Post.Subtitle;
                 post.Content = rawPost.Post.Content;
                 post.DateOfModification = DateTime.Now;
 
