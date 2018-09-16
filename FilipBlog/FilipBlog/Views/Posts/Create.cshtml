@@ -42,9 +42,17 @@
         @Html.LabelFor(model => model.RawImageURLs, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextAreaFor(model => model.RawImageURLs, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Post.Content, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.RawImageURLs, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.RawVideoURLs, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.RawVideoURLs, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RawVideoURLs, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
     @Html.HiddenFor(model => model.Post.AuthorRefId, new { Value = User.Identity.GetUserId() })
     @Html.HiddenFor(model => model.Post.DateOfCreation)
     @Html.HiddenFor(model => model.Post.DateOfModification)
@@ -59,24 +67,19 @@
             </div>
         </div>*@
 
-   
     @for (int i = 0; i < Model.RawCategories.Length; i++)
-    {        
-    <div class="form-group">
-        @Html.DisplayFor(model => Model.RawCategories[i].CategoryName)
-        @Html.HiddenFor(model => Model.RawCategories[i].CategoryName)
-        <div class="col-md-6">
-            <div class="checkbox">
-                @Html.EditorFor(model => Model.RawCategories[i].IsSelected)
-                @Html.ValidationMessageFor(model => Model.RawCategories[i].IsSelected, "", new { @class = "text-danger" })
+    {
+        <div class="form-group">
+            @Html.DisplayFor(model => Model.RawCategories[i].CategoryName)
+            @Html.HiddenFor(model => Model.RawCategories[i].CategoryName)
+            <div class="col-md-6">
+                <div class="checkbox">
+                    @Html.EditorFor(model => Model.RawCategories[i].IsSelected)
+                    @Html.ValidationMessageFor(model => Model.RawCategories[i].IsSelected, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-    </div>
     }
-
-
-
-
 
 
 

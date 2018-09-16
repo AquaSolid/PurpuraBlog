@@ -67,52 +67,59 @@
             }
         </dd>
         <dd>
-            @foreach (var ImageUrl in Model.ImageURLs)
-            {
-                <img src=@Html.DisplayFor(item => ImageUrl.URL)>
-            }
+
         </dd>
-        
+
     </dl>
+</div> 
+<div>
+    @foreach (var ImageUrl in Model.ImageURLs)
+    {
+        <img src=@Html.DisplayFor(item => ImageUrl.URL)>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, null)
+<div>
+    @foreach (var VideoUrl in Model.VideoURLs)
+    {
+        <video src=@Html.DisplayFor(item => VideoUrl.URL) controls>  </video>
+    }
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, null)
 
+        <div id="likesDislikes">
+            @Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
+        </div>
+        @Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+        {
+            UpdateTargetId = "likesDislikes",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        }, new { @class = "btn" })
+        @Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+        {
+            UpdateTargetId = "likesDislikes",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        }, new { @class = "btn " })
 
-    <div id="likesDislikes">
-        @Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
+    </p>
+    <div id="comments">
+        @Html.Partial("~/Views/Posts/_CommentList.cshtml", @Model.Comments)
     </div>
-
-    @Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
-    UpdateTargetId = "likesDislikes",
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "GET"
-}, new { @class = "btn" })
-
-    @Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions {
-    UpdateTargetId = "likesDislikes",
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "GET"
-}, new { @class = "btn " })
-
-
-</p>
-
-<div id="comments">
-    @Html.Partial("~/Views/Posts/_CommentList.cshtml", @Model.Comments)
-    </div>
-    @Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment() {
-        Post_PostId = Model.PostId, CommenterRefId=User.Identity.GetUserId()
+    @Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment()
+    {
+        Post_PostId = Model.PostId,
+        CommenterRefId = User.Identity.GetUserId()
     })
-
 
     @section scripts {
         @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
         <script>
             function refreshComments() {
-                
+
                 $.ajax({
                    // url: $("#createComment").data('url') + "/"+ @Model.PostId,
                     url: $("#createComment").data('url') ,

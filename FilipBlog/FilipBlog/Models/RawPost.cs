@@ -28,6 +28,8 @@ namespace FilipBlog.Models
                     c.Name, Post.Categories.Contains(c)
                 )).ToArray();
             this.RawImageURLs = String.Join(Environment.NewLine, Post.ImageURLs.Select(image => image.URL).ToArray());
+            this.RawVideoURLs = String.Join(Environment.NewLine, Post.VideoURLs.Select(video => video.URL).ToArray());
+            
 
         }
 
@@ -35,7 +37,7 @@ namespace FilipBlog.Models
 
         public void updatePost (int postId, List <Category> categoriesFromDB)
         {
-       /*   Post.ImageURLs=RawImageURLs
+       Post.ImageURLs=RawImageURLs
                     .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                     .ToList()
                     .Select(str => new ImageLink { URL = str, PostRefId = postId })
@@ -45,7 +47,7 @@ namespace FilipBlog.Models
                     .ToList()
                     .Select(str => new VideoLink { URL = str, PostRefId = postId })
                     .ToList();
-*/
+
             Post.Categories = categoriesFromDB.Where(cDB =>
             RawCategories.Where(c => c.IsSelected).Select(c => c.CategoryName).Contains(cDB.Name)).ToList();
 
