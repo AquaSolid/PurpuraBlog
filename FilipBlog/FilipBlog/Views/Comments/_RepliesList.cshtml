@@ -99,39 +99,40 @@
 
 </script>
 
-<table>
+<table class="table table-bordered">
 
     @foreach (var item in Model.Replies)
     {
-        <tr class="commentRow">
+        <tr>
 
             <td>
                 <img src=@item.Commenter.ProfilePictureURL class="commenterProfilePhoto">
-                @if (item.Commenter.Id == User.Identity.GetUserId())
-                {<button data-comment-id=@item.CommentId class="btn-link js-edit @item.CommentId">Edit</button>
-                    <button data-comment-id=@item.CommentId class="btn-link js-cancel @item.CommentId" hidden="hidden">Cancel</button>
-                    <button data-comment-id=@item.CommentId class="btn-link js-save @item.CommentId" hidden="hidden">Save</button>
-                }
-                @if (item.Commenter.Id == User.Identity.GetUserId() || User.IsInRole("Admin"))
-                {
-                    <button data-comment-id=@item.CommentId class="btn-link js-delete @item.CommentId">Delete</button>
-                }
+
+                @Html.ActionLink(item.Commenter.FullName(), "Details", "Accounts", new { id = item.CommentId })
             </td>
 
-            <td class="col-md-9">
+            <td >
                 <div>
-                    @item.Commenter.FullName()
+
 
                     <p class="currentContent @item.CommentId">@item.Content</p>
                     <input type="text" hidden="hidden" class="editField @item.CommentId" value=@item.Content>
                 </div>
                 <div>
                     @item.howLongAgo()
-
-                    @* <button data-comment-id=@item.CommentId class="btn-link js-reply @item.CommentId"
-                data-url='@Url.Action("Reply","Comments", new {ParentComment_CommentId  = item.CommentId} )'>
-            Reply
-        </button>*@
+                    @if (item.Commenter.Id == User.Identity.GetUserId())
+    {<button data-comment-id=@item.CommentId class="btn-link js-edit @item.CommentId">Edit</button>
+                <button data-comment-id=@item.CommentId class="btn-link js-cancel @item.CommentId" hidden="hidden">Cancel</button>
+                <button data-comment-id=@item.CommentId class="btn-link js-save @item.CommentId" hidden="hidden">Save</button>
+}
+                    @if (item.Commenter.Id == User.Identity.GetUserId() || User.IsInRole("Admin"))
+    {
+                <button data-comment-id=@item.CommentId class="btn-link js-delete @item.CommentId">Delete</button>
+}
+                @* <button data-comment-id=@item.CommentId class="btn-link js-reply @item.CommentId"
+            data-url='@Url.Action("Reply","Comments", new {ParentComment_CommentId  = item.CommentId} )'>
+        Reply
+    </button>*@
                 </div>
 
             </td>

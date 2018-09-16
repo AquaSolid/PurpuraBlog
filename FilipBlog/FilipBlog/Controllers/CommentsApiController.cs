@@ -12,6 +12,7 @@ using FilipBlog.Models;
 using Microsoft.AspNet.Identity;
 namespace FilipBlog.Controllers
 {
+    [Authorize]
     public class CommentsApiController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -126,11 +127,11 @@ namespace FilipBlog.Controllers
             if (comment.ParentComment_CommentId  ==0)
             {
                 //db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
-                comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+               // comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
 
                // db.Comments.Find(comment.ParentComment_CommentId ).Replies.Remove(comment);
             }
-            db.Entry(comment).State = EntityState.Deleted;
+           // db.Entry(comment).State = EntityState.Deleted;
             db.Comments.Remove(comment);
             db.SaveChanges();
 

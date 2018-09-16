@@ -39,10 +39,10 @@ namespace FilipBlog.Models {
         {
             int seconds = (int) DateTime.Now.Subtract(DateOfCreation).TotalSeconds;
           
-            if (seconds < 60) return String.Format("{0} seconds ago", seconds);
-            if (seconds > 60 && seconds < 3600) return String.Format("{0} minutes ago", (int) seconds/60);
-            if (seconds > 3600 && seconds < 3600*24) return String.Format("{0} hours ago", (int)seconds / 3600);
-            return String.Format("{0} days ago", (int)seconds / (3600*24));
+            if (seconds < 60) return String.Format("{0} second{1} ago", seconds, seconds>1?"s":"");
+            if (seconds > 60 && seconds < 3600) return String.Format("{0} minute{1} ago", (int) seconds/60, (int)seconds /60 > 1 ? "s":"");
+            if (seconds > 3600 && seconds < 3600*24) return String.Format("{0} hour{1} ago", (int)seconds / 3600, (int) seconds/3600 > 1 ? "s" : "");
+            return String.Format("{0} day{1} ago", (int)seconds / (3600*24), (int)seconds / (3600 * 24) > 1? "s" : "");
         }
     }
 }

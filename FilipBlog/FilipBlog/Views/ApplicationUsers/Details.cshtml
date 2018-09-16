@@ -12,11 +12,11 @@
         <img src=@Html.DisplayFor(model => model.ProfilePictureURL)>
     </div>
     <div class="col-md-8">
-       
-        
-   
-       
-        
+
+
+
+
+
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.BirthDay)
@@ -61,6 +61,19 @@
                 @Html.DisplayFor(model => model.UserName)
             </dd>
 
+            <dt>
+                Roles
+            </dt>
+
+            <dd>
+                <ul>
+                    @foreach (var r in Model.Roles)
+                    {
+                    <li>  @r.RoleId</li>
+                    }
+                </ul>
+            </dd>
+
         </dl>
 
     </div>
@@ -73,13 +86,13 @@
 </p>
 
 <div>
-    
+
 
     @foreach (var post in Model.PostsAuthored)
     {
-      @Html.Partial("~/Views/Posts/_Basic.cshtml", post);
-          
-        
+        @Html.Partial("~/Views/Posts/_Basic.cshtml", post);
+
+
     }
 
 

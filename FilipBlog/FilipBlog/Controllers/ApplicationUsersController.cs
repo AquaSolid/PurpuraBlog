@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FilipBlog.Models;
-
+using Microsoft.AspNet.Identity;
 namespace FilipBlog.Controllers
 {
     public class ApplicationUsersController : Controller
@@ -123,5 +123,14 @@ namespace FilipBlog.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+
+        public ActionResult DisplayPhotoAndName()
+        {
+            return PartialView("_PhotoAndName", db.Users.Find(User.Identity.GetUserId()));
+        }
+
     }
 }

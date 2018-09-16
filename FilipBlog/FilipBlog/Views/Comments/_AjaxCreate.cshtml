@@ -6,14 +6,16 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
+@if (User.Identity.IsAuthenticated)
+{
+    <input type="text" id="commentContent" value="" />
+    <button id="createComment" data-url='@Url.Action("ShowComments","Posts", new {postId = Model.Post_PostId } )'>Create</button>
 
-<input type="text" id="commentContent" value="" />
-<button id="createComment" data-url='@Url.Action("ShowComments","Posts", new {postId = Model.Post_PostId } )'>Create</button>
+    @*<button id="createComment" data-url='@Url.Action("ShowComment","Comments")'>Create</button>*@
 
-@*<button id="createComment" data-url='@Url.Action("ShowComment","Comments")'>Create</button>*@
-
-<input type="text" id="commentPostId" hidden="hidden" value=@Model.Post_PostId />
-
+    @Html.Action("DisplayPhotoAndName", "ApplicationUsers")
+    <input type="text" id="commentPostId" hidden="hidden" value=@Model.Post_PostId />
+}
 <script type="text/javascript">
     $("#createComment").on("click", function () {
 
@@ -32,7 +34,7 @@
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 refreshComments();
-      },
+            },
             error: function (data) {
                 //alert("POST error");
                 refreshComments();

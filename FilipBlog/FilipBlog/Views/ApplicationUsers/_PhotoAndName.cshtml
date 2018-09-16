@@ -1,0 +1,6 @@
+﻿@model FilipBlog.Models.ApplicationUser
+
+
+<img src=@Model.ProfilePictureURL class="commenterProfilePhoto">
+
+@Html.ActionLink(Model.FullName(), "Details", "Accounts", new { id = Model.Id })

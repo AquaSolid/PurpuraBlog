@@ -343,6 +343,7 @@
     <Content Include="Views\Comments\_SingleComment.cshtml" />
     <Content Include="Views\Comments\_AjaxReply.cshtml" />
     <Content Include="Views\Comments\_RepliesList.cshtml" />
+    <Content Include="Views\ApplicationUsers\_PhotoAndName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
