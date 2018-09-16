@@ -137,19 +137,50 @@ namespace FilipBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Post,RawImageURLs,RawCategories")] RawPost rawPost)
         {
-            
+
 
             rawPost.updatePost(rawPost.Post.PostId, db.Categories.ToList());
-            if (ModelState.IsValid)
-            {   
-              /*  foreach (ImageLink image in rawPost.Post.ImageURLs)
-                {   if (db.ImageLinks.ToList().Contains(image))
-                        db.Entry(image).State = EntityState.Modified;
-                    else
-                        db.ImageLinks.Add(image);
+          /*  List<String> selectedCategoriesNames = rawPost.RawCategories.Where(c => c.IsSelected).Select(c => c.CategoryName).ToList();
+            List<Category> selectedCategories = db.Categories.Where(cDB =>
+            selectedCategoriesNames.Contains(cDB.Name)).ToList();
+            
+            foreach(Category c in selectedCategories)
+            {
+                if (!rawPost.Post.Categories.Contains(c))
+                {
+                    rawPost.Post.Categories.Add(c);
+
+                    db.Posts.Find(rawPost.Post.PostId).Categories.Add(c);
+                    db.Categories.Find(c.CategoryID).Posts.Add(rawPost.Post);
                 }
-*/
+            }
+            foreach (Category c in rawPost.Post.Categories)
+            {
+                if (!selectedCategories.Contains(c))
+                {
+                    rawPost.Post.Categories.Remove(c);
+
+                    db.Posts.Find(rawPost.Post.PostId).Categories.Remove(c);
+                    db.Categories.Find(c.CategoryID).Posts.Remove(rawPost.Post);
+                }
+
+            }
+
+
+            */
+            if (ModelState.IsValid)
+            {
+                /*     foreach (ImageLink image in rawPost.Post.ImageURLs)
+                    {   if (db.ImageLinks.ToList().Contains(image))
+                            db.Entry(image).State = EntityState.Modified;
+                        else
+                            db.ImageLinks.Add(image);
+                    }
+    */
+               // MapProperties(entityFromDB, ModelClass1);
                 db.Entry(rawPost.Post).State = EntityState.Modified;
+
+           
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

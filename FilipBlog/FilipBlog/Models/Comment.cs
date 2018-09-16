@@ -29,5 +29,15 @@ namespace FilipBlog.Models {
         public virtual ICollection<Like> Likes { get; set; } // LikePostDBContext.cs resolves this dilemma 
         public virtual ICollection<Dislike> Dislikes { get; set; } // DislikePostDBContext.cs resolves this dilemma 
         public virtual ICollection<Comment> Replies { get; set; }
+
+        public String howLongAgo ()
+        {
+            int seconds = (int) DateTime.Now.Subtract(DateOfCreation).TotalSeconds;
+          
+            if (seconds < 60) return String.Format("{0} seconds ago", seconds);
+            if (seconds > 60 && seconds < 3600) return String.Format("{0} minutes ago", (int) seconds/60);
+            if (seconds > 3600 && seconds < 3600*24) return String.Format("{0} hours ago", (int)seconds / 3600);
+            return String.Format("{0} days ago", (int)seconds / (3600*24));
+        }
     }
 }
