@@ -216,6 +216,14 @@ namespace FilipBlog.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
+            post.Likers.ToList().ForEach(x => x.PostsLiked.Remove(post));
+            post.Dislikers.ToList().ForEach(x => x.PostsDisliked.Remove(post));
+            post.Comments.Select(c => c.Commenter).ToList().ForEach(x => x.PostsCommentedOn.Remove(post));
+            post.Categories.ToList().ForEach(c => c.Posts.Remove(post));
+            post.Author.PostsAuthored.Remove(post);
+          /*  post.ImageURLs.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+            post.VideoURLs.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+            */
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
