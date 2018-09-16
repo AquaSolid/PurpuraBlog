@@ -344,6 +344,9 @@
     <Content Include="Views\Comments\_AjaxReply.cshtml" />
     <Content Include="Views\Comments\_RepliesList.cshtml" />
     <Content Include="Views\ApplicationUsers\_PhotoAndName.cshtml" />
+    <Content Include="Views\Categories\HomeView.cshtml" />
+    <Content Include="Views\Shared\_Basic.cshtml" />
+    <Content Include="Views\Shared\_PostList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

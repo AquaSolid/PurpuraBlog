@@ -128,5 +128,23 @@ namespace FilipBlog.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult AllPostsFrom (int id)
+        {
+            if (id == 0) return PartialView("_PostList", db.Posts.ToList());
+            return PartialView("_PostList", db.Categories.Find(id).Posts);
+        }
+
+        public ActionResult HomeView()
+        {
+            return View(db.Categories.ToList());
+        }
+
+        public ActionResult TopPosts()
+        {
+            List<Post> top = db.Posts.OrderByDescending(c => c.Likers.Count - c.Dislikers.Count).Take(10).ToList();
+            return PartialView("_PostList", top);
+
+        }
+
     }
 }

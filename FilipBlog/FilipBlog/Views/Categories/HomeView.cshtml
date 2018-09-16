@@ -1,0 +1,59 @@
+﻿@using FilipBlog.Models
+@model List<FilipBlog.Models.Category>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script>
+    $(document).ready(function () {
+        $(".categoryButton").click(function () {
+
+            $.ajax({
+
+                url: $(".categoryButton." + $(this).attr("data-Category-id")).data('url'),
+                type: 'GET',
+
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#postsFromCategory').empty();
+                    $('#postsFromCategory').append(data);
+
+
+                },
+
+                error: function (data) {
+                    $('#postsFromCategory').empty();
+                    $('#postsFromCategory').append(data);
+                }
+            });
+
+    });
+    });
+</script>
+<div class="row">
+    <div class=" purpleBackground whiteText profileSidebar">
+
+        <div class="categoryButton 0" data-Category-id="0" data-url='@Url.Action("AllPostsFrom","Categories", new {id = 0 } )'>All</div>
+        @foreach (Category c in Model)
+        {
+
+            <div class="categoryButton @c.CategoryID" data-Category-id="@c.CategoryID" data-url='@Url.Action("AllPostsFrom","Categories", new {id = c.CategoryID } )'>@c.Name</div>
+        }
+
+    </div>
+    <div class="profileMain">
+        <div id="postsFromCategory" class="col-md-8">
+
+            Posts from category:
+            @Html.Action("AllPostsFrom", "Categories", new { id = 0 });
+
+        </div>
+
+        <div id="topPosts" class="col-md-4">
+            Top 10 posts:
+            @Html.Action("TopPosts", "Categories", null);
+
+
+            </div>
+
+    </div>
