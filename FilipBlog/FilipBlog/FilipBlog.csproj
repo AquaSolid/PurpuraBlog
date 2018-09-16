@@ -210,9 +210,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809131016573_initial.cs" />
-    <Compile Include="Migrations\201809131016573_initial.Designer.cs">
-      <DependentUpon>201809131016573_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201809161413219_initial.cs" />
+    <Compile Include="Migrations\201809161413219_initial.Designer.cs">
+      <DependentUpon>201809161413219_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -341,13 +341,15 @@
     <Content Include="Views\Comments\_Create.cshtml" />
     <Content Include="Views\Posts\_CommentList.cshtml" />
     <Content Include="Views\Comments\_SingleComment.cshtml" />
+    <Content Include="Views\Comments\_AjaxReply.cshtml" />
+    <Content Include="Views\Comments\_RepliesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809131016573_initial.resx">
-      <DependentUpon>201809131016573_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809161413219_initial.resx">
+      <DependentUpon>201809161413219_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

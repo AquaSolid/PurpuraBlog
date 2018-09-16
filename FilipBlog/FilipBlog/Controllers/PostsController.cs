@@ -142,8 +142,9 @@ namespace FilipBlog.Controllers
             {
 
                 Post post = db.Posts.Find(rawPost.Post.PostId);
-
-                List<VideoLink> updatedVideoLinks = rawPost.RawVideoURLs
+                List<VideoLink> updatedVideoLinks = new List<VideoLink>();
+                if (rawPost.RawVideoURLs!=null)
+                updatedVideoLinks = rawPost.RawVideoURLs
                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                        .ToList()
                        .Select(str => new VideoLink { URL = str, PostRefId = rawPost.Post.PostId })
@@ -156,7 +157,9 @@ namespace FilipBlog.Controllers
                 deletedVideos.ForEach(x => db.Entry(x).State = EntityState.Deleted);
 
 
-                List<ImageLink> updatedImageLinks = rawPost.RawImageURLs
+                List<ImageLink> updatedImageLinks = new List<ImageLink>();
+                if(rawPost.RawImageURLs!=null)
+                    updatedImageLinks = rawPost.RawImageURLs
                      .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                      .ToList()
                      .Select(str => new ImageLink { URL = str, PostRefId = rawPost.Post.PostId })

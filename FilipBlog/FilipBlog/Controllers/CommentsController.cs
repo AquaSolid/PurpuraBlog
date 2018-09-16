@@ -14,6 +14,15 @@ namespace FilipBlog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Reply (int ParentComment_CommentId )
+        { Comment reply = new Comment();
+            db.Comments.Find(ParentComment_CommentId ).Replies.Add(reply);
+            return PartialView("_AjaxReply", reply);
+
+
+        }
+
+
         // GET: Comments
         public ActionResult Index()
         {
@@ -58,6 +67,9 @@ namespace FilipBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                comment.Commenter=db.Users.Find(comment.CommenterRefId);
+                comment.Post = db.Posts.Find(comment.Post_PostId);
+                comment.Commenter.PostsCommentedOn.Add(comment.Post);
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

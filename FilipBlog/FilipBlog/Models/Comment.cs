@@ -22,12 +22,17 @@ namespace FilipBlog.Models {
         public string CommenterRefId { get; set; }
         public virtual ApplicationUser Commenter { get; set; }
 
+     //  [ForeignKey("ParentComment")]
+        public int ParentComment_CommentId { get; set; }
+       // public virtual Comment ParentComment {get;set;}
+        
         [ForeignKey("Post")]
         public int Post_PostId { get; set; }
         public virtual Post Post { get; set; }
-
-        public virtual ICollection<Like> Likes { get; set; } // LikePostDBContext.cs resolves this dilemma 
-        public virtual ICollection<Dislike> Dislikes { get; set; } // DislikePostDBContext.cs resolves this dilemma 
+        //not used
+        public virtual ICollection<Like> Likes { get; set; } 
+        //not used
+        public virtual ICollection<Dislike> Dislikes { get; set; } 
         public virtual ICollection<Comment> Replies { get; set; }
 
         public String howLongAgo ()

@@ -1,0 +1,61 @@
+﻿@model FilipBlog.Models.Comment
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<input type="text" class="replyContent @Model.ParentComment_CommentId " value="" />
+<button class="createReply @Model.ParentComment_CommentId " data-parent-comment-id=@Model.ParentComment_CommentId  data-url='@Url.Action("ShowReplies","Comments", new {ParentComment_CommentId  = Model.ParentComment_CommentId  } )'>Reply</button>
+
+@*<button id="createComment" data-url='@Url.Action("ShowComment","Comments")'>Create</button>*@
+
+<input type="text" class="replyPostId @Model.ParentComment_CommentId " hidden="hidden" value=@Model.Post_PostId />
+
+<script type="text/javascript">
+    $(".createReply").on("click", function () {
+
+
+        var newComment = {
+            Content: $(".replyContent."+$(this).attr("data-parent-comment-id")).val(),
+
+            Post_PostId: $(".replyPostId." + $(this).attr("data-parent-comment-id")).val(),
+            ParentComment_CommentId : $(this).attr("data-parent-comment-id")
+
+        };
+        $.ajax({
+            url: '/api/CommentsApi',
+            type: 'POST',
+            data: JSON.stringify(newComment),
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                refreshComments();
+      },
+            error: function (data) {
+                //alert("POST error");
+                refreshComments();
+            }
+        });
+
+
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section scripts {
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}
+

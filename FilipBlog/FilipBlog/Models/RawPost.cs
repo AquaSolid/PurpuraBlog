@@ -27,10 +27,12 @@ namespace FilipBlog.Models
                 c => new CategoryIntermediate(
                     c.Name, Post.Categories.Contains(c)
                 )).ToArray();
+
+           
             this.RawImageURLs = String.Join(Environment.NewLine, Post.ImageURLs.Select(image => image.URL).ToArray());
             this.RawVideoURLs = String.Join(Environment.NewLine, Post.VideoURLs.Select(video => video.URL).ToArray());
-            
-
+            if (RawImageURLs == null) RawImageURLs = "";
+            if (RawVideoURLs == null) RawVideoURLs = "";
         }
 
        

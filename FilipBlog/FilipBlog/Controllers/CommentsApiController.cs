@@ -83,16 +83,35 @@ namespace FilipBlog.Controllers
             comment.DateOfCreation = DateTime.Now;
             comment.DateOfModification = DateTime.Now;
             comment.Commenter = db.Users.Find(comment.CommenterRefId);
+
+            
+            comment.Post = db.Posts.Find(comment.Post_PostId);
+            comment.Commenter.PostsCommentedOn.Add(comment.Post);
+
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Comments.Add(comment);
+            if(comment.ParentComment_CommentId !=0)
+            {
+                db.Comments.Find(comment.ParentComment_CommentId ).Replies.Add(comment);
+               // comment.ParentComment = db.Comments.Find(comment.ParentComment_CommentId );
+            }
+            else db.Comments.Add(comment);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = comment.CommentId }, comment);
         }
+        
+        
+
+
+
+
+
+
 
         // DELETE: api/CommentsApi/5
         [ResponseType(typeof(Comment))]
@@ -104,6 +123,14 @@ namespace FilipBlog.Controllers
                 return NotFound();
             }
 
+            if (comment.ParentComment_CommentId  ==0)
+            {
+                //db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
+                comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+
+               // db.Comments.Find(comment.ParentComment_CommentId ).Replies.Remove(comment);
+            }
+            db.Entry(comment).State = EntityState.Deleted;
             db.Comments.Remove(comment);
             db.SaveChanges();
 
