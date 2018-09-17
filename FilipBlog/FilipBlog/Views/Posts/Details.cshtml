@@ -189,12 +189,12 @@
     @section scripts {
         @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
         <script>
-            $(document).ready(function () { alert("NE PROBUVAJTE DA BRISHETE KOMENTARI, SE ZAEBUVA BAZATAAA XD Drugoto e ok");})
+ 
 
             function refreshComments() {
 
                 $.ajax({
-                   // url: $("#createComment").data('url') + "/"+ @Model.PostId,
+                  
                     url: $("#createComment").data('url') ,
                     type: 'GET',
 
@@ -202,7 +202,7 @@
                     success: function (data) {
                         $('#comments').empty();
                         $('#comments').append(data);
-                       // $(data).appendTo($('#commentsTable'));
+                     
 
                     }
                 });

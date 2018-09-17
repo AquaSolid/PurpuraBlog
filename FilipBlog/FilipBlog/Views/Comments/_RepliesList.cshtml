@@ -17,8 +17,8 @@
                 url: "/api/CommentsApi/" + button.attr("data-comment-id"),
                 method: "DELETE",
                 success: function () {
-                    //table.row(button.parents("tr")).remove().draw();
-                    button.parents("tr").remove();
+                   
+                    button.closest("tr").remove();
                 }
             });
 

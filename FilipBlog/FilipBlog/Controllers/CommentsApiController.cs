@@ -123,18 +123,21 @@ namespace FilipBlog.Controllers
             {
                 return NotFound();
             }
-
-            if (comment.ParentComment_CommentId  ==0)
+            try
             {
-                //db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
-               // comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+                if (comment.ParentComment_CommentId == 0)
+                {
+                    //db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
+                    // comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
 
-               // db.Comments.Find(comment.ParentComment_CommentId ).Replies.Remove(comment);
+                    db.Comments.Find(comment.ParentComment_CommentId).Replies.Remove(comment);
+                }
+                // db.Entry(comment).State = EntityState.Deleted;
+                db.Comments.Remove(comment);
+                db.SaveChanges();
             }
-           // db.Entry(comment).State = EntityState.Deleted;
-            db.Comments.Remove(comment);
-            db.SaveChanges();
-
+            catch (Exception e)
+            { }
             return Ok(comment);
         }
 
