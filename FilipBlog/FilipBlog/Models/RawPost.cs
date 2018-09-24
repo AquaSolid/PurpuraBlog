@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,10 @@ namespace FilipBlog.Models
     [NotMapped]
     public class RawPost
     {
-      
+		[Display(Name="Image URLs")]	
         public string RawImageURLs { get; set; }
-        public string RawVideoURLs { get; set; }
+		[Display(Name = "Video URLs")]
+		public string RawVideoURLs { get; set; }
         public Post Post { get; set; }
         public CategoryIntermediate[] RawCategories { get; set; }
 

@@ -12,147 +12,142 @@ using FilipBlog.Models;
 using Microsoft.AspNet.Identity;
 namespace FilipBlog.Controllers
 {
-    [Authorize]
-    public class CommentsApiController : ApiController
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+	[Authorize]
+	public class CommentsApiController : ApiController
+	{
+		private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/CommentsApi
-        public IQueryable<Comment> GetComments()
-        {
-            return db.Comments;
-        }
+		// GET: api/CommentsApi
+		public IQueryable<Comment> GetComments()
+		{
+			return db.Comments;
+		}
 
-        // GET: api/CommentsApi/5
-        [ResponseType(typeof(Comment))]
-        public IHttpActionResult GetComment(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
+		// GET: api/CommentsApi/5
+		[ResponseType(typeof(Comment))]
+		public IHttpActionResult GetComment(int id)
+		{
+			Comment comment = db.Comments.Find(id);
+			if (comment == null)
+			{
+				return NotFound();
+			}
 
-            return Ok(comment);
-        }
+			return Ok(comment);
+		}
 
-        // PUT: api/CommentsApi/5
-        [ResponseType(typeof(void))]
-        [HttpPut]
-        public IHttpActionResult PutComment(int id, Comment comment)
-        {
-            Comment oldComment = db.Comments.Find(id);
-            oldComment.DateOfModification = DateTime.Now;
-            oldComment.Content = comment.Content;
+		// PUT: api/CommentsApi/5
+		[ResponseType(typeof(void))]
+		[HttpPut]
+		public IHttpActionResult PutComment(int id, Comment comment)
+		{
+			Comment oldComment = db.Comments.Find(id);
+			oldComment.DateOfModification = DateTime.Now;
+			oldComment.Content = comment.Content;
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 
-            if (id != oldComment.CommentId)
-            {
-                return BadRequest();
-            }
+			if (id != oldComment.CommentId)
+			{
+				return BadRequest();
+			}
 
-            db.Entry(oldComment).State = EntityState.Modified;
+			db.Entry(oldComment).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CommentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+			try
+			{
+				db.SaveChanges();
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				if (!CommentExists(id))
+				{
+					return NotFound();
+				}
+				else
+				{
+					throw;
+				}
+			}
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+			return StatusCode(HttpStatusCode.NoContent);
+		}
 
-        // POST: api/CommentsApi
-        [ResponseType(typeof(Comment))]
-        public IHttpActionResult PostComment(Comment comment)
-        {
-            comment.CommenterRefId = User.Identity.GetUserId();
-            comment.DateOfCreation = DateTime.Now;
-            comment.DateOfModification = DateTime.Now;
-            comment.Commenter = db.Users.Find(comment.CommenterRefId);
-
-            
-            comment.Post = db.Posts.Find(comment.Post_PostId);
-            comment.Commenter.PostsCommentedOn.Add(comment.Post);
+		// POST: api/CommentsApi
+		[ResponseType(typeof(Comment))]
+		public IHttpActionResult PostComment(Comment comment)
+		{
+			comment.CommenterRefId = User.Identity.GetUserId();
+			comment.DateOfCreation = DateTime.Now;
+			comment.DateOfModification = DateTime.Now;
+			comment.Commenter = db.Users.Find(comment.CommenterRefId);
 
 
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if(comment.ParentComment_CommentId !=0)
-            {
-                db.Comments.Find(comment.ParentComment_CommentId ).Replies.Add(comment);
-               // comment.ParentComment = db.Comments.Find(comment.ParentComment_CommentId );
-            }
-            else db.Comments.Add(comment);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = comment.CommentId }, comment);
-        }
-        
-        
+			comment.Post = db.Posts.Find(comment.Post_PostId);
+			comment.Commenter.PostsCommentedOn.Add(comment.Post);
 
 
 
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			if (comment.ParentComment_CommentId != 0)
+			{
+				db.Comments.Find(comment.ParentComment_CommentId).Replies.Add(comment);
+				// comment.ParentComment = db.Comments.Find(comment.ParentComment_CommentId );
+			}
+			else db.Comments.Add(comment);
+			db.SaveChanges();
+
+			return CreatedAtRoute("DefaultApi", new { id = comment.CommentId }, comment);
+		}
+
+		// DELETE: api/CommentsApi/5
+		[ResponseType(typeof(Comment))]
+		public IHttpActionResult DeleteComment(int id)
+		{
+			Comment comment = db.Comments.Find(id);
+			if (comment == null)
+			{
+				return NotFound();
+			}
 
 
 
+			if (comment.ParentComment_CommentId == 0)
+			{
+				//
+				// db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
+				//  comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
 
-        // DELETE: api/CommentsApi/5
-        [ResponseType(typeof(Comment))]
-        public IHttpActionResult DeleteComment(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
-            try
-            {
-                if (comment.ParentComment_CommentId == 0)
-                {
-                    //db.Users.Find(comment.CommenterRefId).CommentsCommentedOn.Remove(comment.ParentComment);
-                    // comment.Replies.ToList().ForEach(c => db.Entry(c).State = EntityState.Deleted);
+				//	var parentCommentId = comment.ParentComment_CommentId;
+				//var replies = db.Comments.Find(parentCommentId).Replies;
+				db.Comments.RemoveRange(comment.Replies);
+			}
+			db.Entry(comment).State = EntityState.Deleted;
+			db.Comments.Remove(comment);
+			db.SaveChanges();
 
-                    db.Comments.Find(comment.ParentComment_CommentId).Replies.Remove(comment);
-                }
-                // db.Entry(comment).State = EntityState.Deleted;
-                db.Comments.Remove(comment);
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            { }
-            return Ok(comment);
-        }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+			return Ok(comment);
+		}
 
-        private bool CommentExists(int id)
-        {
-            return db.Comments.Count(e => e.CommentId == id) > 0;
-        }
-    }
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				db.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		private bool CommentExists(int id)
+		{
+			return db.Comments.Count(e => e.CommentId == id) > 0;
+		}
+	}
 }

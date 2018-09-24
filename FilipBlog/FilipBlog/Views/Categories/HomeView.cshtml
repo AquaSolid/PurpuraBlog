@@ -31,26 +31,27 @@
     });
 </script>
 <div class="row">
-    <div class=" purpleBackground whiteText profileSidebar">
+    <div class=" purpleBackground whiteText profileSidebar" style="padding: 15px; width: 200px;">
 
-        <div class="categoryButton 0" data-Category-id="0" data-url='@Url.Action("AllPostsFrom","Categories", new {id = 0 } )'>All</div>
+        <div class="btn btn-block btn-danger categoryButton 0" data-Category-id="0" data-url='@Url.Action("AllPostsFrom","Categories", new {id = 0 } )'>All</div>
         @foreach (Category c in Model)
         {
 
-            <div class="categoryButton @c.CategoryID" data-Category-id="@c.CategoryID" data-url='@Url.Action("AllPostsFrom","Categories", new {id = c.CategoryID } )'>@c.Name</div>
+            <div  class="btn btn-block btn-info categoryButton @c.CategoryID" data-Category-id="@c.CategoryID" data-url='@Url.Action("AllPostsFrom","Categories", new {id = c.CategoryID } )'>@c.Name</div>
         }
 
     </div>
     <div class="profileMain">
-        <div id="postsFromCategory" class="col-md-8">
+        <div id="postsFromCategory" class="col-md-8"  style="padding-top: 10px; padding-left:0px;">
 
-            Posts from category:
+            <h3>Posts from category:</h3>
+			<br />
             @Html.Action("AllPostsFrom", "Categories", new { id = 0 });
 
         </div>
 
-        <div id="topPosts" class="col-md-4">
-            Top 10 posts:
+        <div id="topPosts" class="col-md-4" style="padding-top: 10px;">
+			<h4>Top 10 posts</h4>
             @Html.Action("TopPosts", "Categories", null);
 
 

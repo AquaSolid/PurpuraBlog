@@ -1,0 +1,95 @@
+﻿@using FilipBlog.Models;
+@model FilipBlog.Models.Post
+
+
+
+
+
+<div class="container">
+   
+    <!-- Button to Open the Modal -->
+    <span type="button"  data-toggle="modal" data-target="#likersList">
+        Likes:
+        @Html.DisplayFor(item => Model.Likers.Count)
+    </span>
+
+    <!-- The Modal -->
+    <div class="modal" id="likersList">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">People who like this post</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul>
+                        @foreach (var person in @Model.Likers)
+                        {
+                            <li> 
+                                @Html.ActionLink(person.FullName(), "Details", "ApplicationUsers", new { id = person.Id },null)
+                        
+                            </li>
+
+                        }</ul>
+</div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button"  data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="container">
+
+    <!-- Button to Open the Modal -->
+    <span type="button" data-toggle="modal" data-target="#dislikersList">
+        Dislikes:
+        @Html.DisplayFor(item => Model.Dislikers.Count)
+    </span>
+
+    <!-- The Modal -->
+    <div class="modal" id="dislikersList">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">People who dislike this post</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul>
+                        @foreach (var person in @Model.Dislikers)
+                        {
+                        <li>
+                            @Html.ActionLink(person.FullName(), "Details", "ApplicationUsers", new { id = person.Id }, null)
+                         
+                        </li>
+
+                        }
+                    </ul>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

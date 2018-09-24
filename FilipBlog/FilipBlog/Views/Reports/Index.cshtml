@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Reports</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -31,9 +29,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Post.Title)
-        </td>
+		<td>
+			@Html.ActionLink(item.Post.Title, "Details","Posts", new { id = item.Post.PostId }, null)
+		</td>
         <td>
             @Html.DisplayFor(modelItem => item.Reporter.FirstName)
         </td>
@@ -46,11 +44,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateOfModification)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReportId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReportId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReportId })
-        </td>
+		<td>
+			@Html.ActionLink("Details", "Details", new { id = item.ReportId }, new { @class = "btn btn-xs btn-primary" }) |
+			@Html.ActionLink("Edit", "Edit", new { id = item.ReportId }, new { @class = "btn btn-xs btn-default" }) |
+
+			@Html.ActionLink("Delete", "Delete", new { id = item.ReportId }, new { @class = "btn btn-xs btn-danger" }) |
+			@Html.ActionLink("Delete post", "Delete", "Posts", new { id = item.Post_PostId }, new { @class = "btn btn-xs btn-danger" })
+
+		</td>
     </tr>
 }
 

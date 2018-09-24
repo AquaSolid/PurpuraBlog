@@ -3,142 +3,178 @@
 @{
     ViewBag.Title = "Details";
 }
+@section scripts{
+<script>
+	$(document).ready(function () {
 
+		$(".deletePost").on("click", function () {
 
+			var button = $(this);
+			$.ajax({
+				url: "/api/PostsApi/" + button.attr("data-Post-Id"),
+				method: "DELETE",
+				success: function () {
+					button.closest("div").remove();
+				},
+				error: function () {
+				//	button.closest("div").remove();
+				}
+			});
 
+		});
+
+	});
+</script>
+}
 
 <div class="row">
-    <div class=" purpleBackground whiteText profileSidebar">
-        
-        <h1> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
-        <img src=@Model.ProfilePictureURL class="profilePic img-circle">
-        <div>
-            <a href="#about">About</a>
-        </div>
-        <div>
-            <a href="#posts">Posts</a>
-        </div>
-        <div>
-            <a href="#likes">Likes</a>
-        </div>
-        <div>
-            <a href="#comments">Comments</a>
-        </div>
+	<div class=" purpleBackground whiteText profileSidebar">
 
-        </div>
-    <div class="profileMain">
-        <div id="about">
+		<h1> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+		<img src=@Model.ProfilePictureURL class="profilePic img-circle img-responsive">
+		<div style="font-size: 18px">
+			<div style="padding-top: 20px">
+				<a href="#about">About</a>
+			</div>
+			<div>
+				<a href="#posts">Posts</a>
+			</div>
+			<div>
+				<a href="#likes">Likes</a>
+			</div>
+			<div>
+				<a href="#comments">Comments</a>
+			</div>
 
-            <h2>About:</h2>
+		</div>
+	</div>
+	<div class="profileMain">
+		<div id="about">
 
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.BirthDay)
-                </dt>
+			<h2>About:</h2>
 
-                <dd>
-                    @Html.DisplayFor(model => model.BirthDay)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Biography)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Biography)
-                </dd>
+			<dl class="dl-horizontal">
+				<dt>
+					@Html.DisplayNameFor(model => model.BirthDay)
+				</dt>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Email)
-                </dt>
+				<dd>
+					@Html.DisplayFor(model => model.BirthDay)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Biography)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Biography)
+				</dd>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Email)
-                </dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Email)
+				</dt>
 
-
-
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PhoneNumber)
-                </dd>
+				<dd>
+					@Html.DisplayFor(model => model.Email)
+				</dd>
 
 
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.UserName)
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.UserName)
-                </dd>
+				@*<dt>
+					@Html.DisplayNameFor(model => model.PhoneNumber)
+				</dt>
 
-                <dt>
-                    Roles
-                </dt>
-
-                <dd>
-                    <ul>
-                        @foreach (var r in Model.Roles)
-                    {
-                        <li>  @r.RoleId</li>
-                }
-                    </ul>
-                </dd>
-
-            </dl>
-
-        </div>
+				<dd>
+					@Html.DisplayFor(model => model.PhoneNumber)
+				</dd>*@
 
 
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Back to List", "Index")
-        </p>
 
-        <div id="posts">
+				<dt>
+					@Html.DisplayNameFor(model => model.UserName)
+				</dt>
 
-            <h2>Posts:</h2>
-            @foreach (var post in Model.PostsAuthored)
-        {
-            @Html.Partial("~/Views/Posts/_Basic.cshtml", post);
+				<dd>
+					@Html.DisplayFor(model => model.UserName)
+				</dd>
 
+				@*<dt>
+					Roles
+				</dt>
 
-    }
+				<dd>
+					<ul>
+						@foreach (var r in Model.Roles)
+					{
+						<li>  @r.RoleId</li>
+				}
+					</ul>
+				</dd>*@
 
+			</dl>
 
-        </div>
-
-
-        <div id="likes">
-
-            <h2>Likes:</h2>
-            @foreach (var post in Model.PostsLiked)
-        {
-            @Html.Partial("~/Views/Posts/_Basic.cshtml", post);
-
-
-    }
+		</div>
 
 
-        </div>
+		<p>
+			@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+			@Html.ActionLink("Back to List", "Index")
+		</p>
+		<hr />
+		<div id="posts">
 
-        <div id="comments">
-
-            <h2>Comments:</h2>
-            @foreach (var post in Model.PostsCommentedOn)
-        {
-            @Html.Partial("~/Views/Posts/_Basic.cshtml", post);
+			<h2>Posts:</h2>
+			@foreach (var post in Model.PostsAuthored)
+			{
+				@Html.Partial("~/Views/Posts/_Basic.cshtml", post);
 
 
-    }
+			}
 
 
-        </div>
+		</div>
 
-    </div>
+		<hr />
+		<div id="likes">
+
+			<h2>Likes:</h2>
+			@foreach (var post in Model.PostsLiked)
+			{
+				@Html.Partial("~/Views/Posts/_Basic.cshtml", post);
+
+
+			}
+
+
+		</div>
+		<hr />
+		<div id="comments">
+
+			<h2>Comments:</h2>
+			@foreach (var post in Model.PostsCommentedOn)
+			{
+				@Html.Partial("~/Views/Posts/_Basic.cshtml", post);
+
+
+			}
+
+
+		</div>
+		<hr />
+		<div id="reports">
+
+			<h2>Reports:</h2>
+			@foreach (var post in Model.PostsReported)
+			{
+				<div>
+					@Html.Partial("~/Views/Posts/_Basic.cshtml", post)
+					<button class="deletePost" data-Post-Id=@post.PostId> Delete</button>
+				</div>
+
+			}
+
+
+		</div>
+	</div>
 
     </div>
 

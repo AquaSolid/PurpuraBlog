@@ -25,9 +25,12 @@ namespace FilipBlog.Models {
 
         [Key]
         public int PostId { get; set; }
-        [Required] [StringLength(160)] public String Title { get; set; }
+        [Required(ErrorMessage ="The title is required")]
+		[StringLength(160, ErrorMessage = "160 is the maximum length for the title")]
+		public String Title { get; set; }
         [StringLength(160)] public String Subtitle { get; set; }
-        [Required] [DataType(DataType.MultilineText)] public String Content { get; set; }
+		[Required(ErrorMessage = "The content can't be empty!")]
+		[DataType(DataType.MultilineText)] public String Content { get; set; }
 
         // one to one
         [Required]
@@ -51,8 +54,10 @@ namespace FilipBlog.Models {
         public virtual ICollection<ApplicationUser> Likers{ get; set; }
         public virtual ICollection<ApplicationUser> Dislikers { get; set; }
 
+		[Display(Name ="Date Created")]
         public DateTime DateOfCreation { get; set; }
-        public DateTime DateOfModification { get; set; }
+		[Display(Name = "Date Modified")]
+		public DateTime DateOfModification { get; set; }
         public Boolean IsFlagged { get; set; }
 
         public override string ToString() {

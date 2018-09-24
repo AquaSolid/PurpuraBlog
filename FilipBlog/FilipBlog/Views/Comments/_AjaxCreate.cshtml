@@ -8,14 +8,17 @@
 @Scripts.Render("~/bundles/bootstrap")
 @if (User.Identity.IsAuthenticated)
 {
-    <input type="text" id="commentContent" value="" />
-    <button id="createComment" data-url='@Url.Action("ShowComments","Posts", new {postId = Model.Post_PostId } )'>Create</button>
+    <input class="form-control" type="text" id="commentContent" value=""/>
+	<button class="btn btn-primary" style="margin-top: 10px" id="createComment" data-url='@Url.Action("ShowComments","Posts", new {postId = Model.Post_PostId } )'>
+		Comment<span style="margin-left: 10px" class="glyphicon glyphicon-comment"></span>
+	</button>
 
     @*<button id="createComment" data-url='@Url.Action("ShowComment","Comments")'>Create</button>*@
 
     @Html.Action("DisplayPhotoAndName", "ApplicationUsers")
     <input type="text" id="commentPostId" hidden="hidden" value=@Model.Post_PostId />
 }
+	<br />
 <script type="text/javascript">
     $("#createComment").on("click", function () {
 

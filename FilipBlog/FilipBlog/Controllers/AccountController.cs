@@ -26,6 +26,7 @@ namespace FilipBlog.Controllers
 		{
 		}
 
+		[Authorize(Roles="Admin")]
 		public ActionResult Index()
 		{
 			var users = db.Users;
@@ -151,7 +152,8 @@ namespace FilipBlog.Controllers
 			switch (result)
 			{
 				case SignInStatus.Success:
-					return RedirectToLocal(returnUrl);
+					//return RedirectToLocal(returnUrl);
+					return RedirectToAction("HomeView", "Categories");
 				case SignInStatus.LockedOut:
 					return View("Lockout");
 				case SignInStatus.RequiresVerification:
@@ -253,7 +255,8 @@ namespace FilipBlog.Controllers
 					};
 
 					AddUserToRoleById(addUserToRoleById);
-					return RedirectToAction("Index", "Home");
+					//return RedirectToAction("Index", "Home");
+					return RedirectToAction("HomeView", "Categories");
 				}
 				AddErrors(result);
 			}

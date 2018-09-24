@@ -1,0 +1,10 @@
+﻿@*@model IEnumerable<FilipBlog.Models.Post>*@
+@using FilipBlog.Models
+@model List<FilipBlog.Models.Post>
+
+<ul>
+	@foreach (Post post in Model)
+	{
+	<li style="font-size: 18px">@Html.Partial("~/Views/Shared/_TopBasic.cshtml", post)</li>
+	}
+</ul>

@@ -13,12 +13,14 @@ namespace FilipBlog.Models {
         }
 
         [Key] public int CommentId { get; set; }
-        [Required] public string Content { get; set; }
+		[Required(ErrorMessage = "Can't subit an empty Comment")] public string Content { get; set; }
 
-        public DateTime DateOfCreation { get; set; }
-        public DateTime DateOfModification { get; set; }
+		[Display(Name = "Date Created")]
+		public DateTime DateOfCreation { get; set; }
+		[Display(Name = "Date Modified")]
+		public DateTime DateOfModification { get; set; }
 
-        [ForeignKey("Commenter")]
+		[ForeignKey("Commenter")]
         public string CommenterRefId { get; set; }
         public virtual ApplicationUser Commenter { get; set; }
 

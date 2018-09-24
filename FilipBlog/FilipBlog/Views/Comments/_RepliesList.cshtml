@@ -106,7 +106,7 @@
         <tr>
 
             <td>
-                <img src=@item.Commenter.ProfilePictureURL class="commenterProfilePhoto">
+                <img src=@item.Commenter.ProfilePictureURL class="commenterProfilePhoto img-circle">
 
                 @Html.ActionLink(item.Commenter.FullName(), "Details", "Accounts", new { id = item.CommentId })
             </td>
@@ -115,7 +115,7 @@
                 <div>
 
 
-                    <p class="currentContent @item.CommentId">@item.Content</p>
+                    <p class="currentContent @item.CommentId" style="font-size: 18px">@item.Content</p>
                     <input type="text" hidden="hidden" class="editField @item.CommentId" value=@item.Content>
                 </div>
                 <div>

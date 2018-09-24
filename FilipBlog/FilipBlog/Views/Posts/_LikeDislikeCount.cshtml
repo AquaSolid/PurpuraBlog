@@ -1,17 +1,13 @@
 ﻿@using FilipBlog.Models;
 @model FilipBlog.Models.Post
 
-
-
-
-
 <div class="container">
    
     <!-- Button to Open the Modal -->
-    <p type="button"  data-toggle="modal" data-target="#likersList">
+    <span class="btn" type="button"  data-toggle="modal" data-target="#likersList">
         Likes:
         @Html.DisplayFor(item => Model.Likers.Count)
-    </p>
+    </span>
 
     <!-- The Modal -->
     <div class="modal" id="likersList">
@@ -46,17 +42,13 @@
         </div>
     </div>
 
-</div>
 
-
-
-<div class="container">
 
     <!-- Button to Open the Modal -->
-    <p type="button" data-toggle="modal" data-target="#dislikersList">
+    <span class="btn" type="button" data-toggle="modal" data-target="#dislikersList">
         Dislikes:
         @Html.DisplayFor(item => Model.Dislikers.Count)
-    </p>
+    </span>
 
     <!-- The Modal -->
     <div class="modal" id="dislikersList">
