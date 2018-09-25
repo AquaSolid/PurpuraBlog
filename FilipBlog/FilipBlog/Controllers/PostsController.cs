@@ -56,6 +56,7 @@ namespace FilipBlog.Controllers
         //}
 
         // GET: Posts/Create
+        	[Authorize(Roles="Admin, Moderator, Editor")]
         public ActionResult Create()
         {
             ViewBag.Message = User.Identity.GetUserId();
@@ -109,7 +110,7 @@ namespace FilipBlog.Controllers
 
             return View(rawPost);
         }
-
+        [Authorize(Roles = "Admin, Moderator, Editor")]
         // GET: Posts/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -197,7 +198,7 @@ namespace FilipBlog.Controllers
 
             return View(rawPost);
         }
-
+        [Authorize(Roles = "Admin, Moderator, Editor")]
         // GET: Posts/Delete/5
         public ActionResult Delete(int? id)
         {

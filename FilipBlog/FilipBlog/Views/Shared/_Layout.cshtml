@@ -11,6 +11,7 @@
     @RenderSection("scripts", required: false)
     <link rel="stylesheet" type="text/css" href="~/Content/BlogStyle.css">
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -23,30 +24,41 @@
                 @Html.ActionLink("PurpuraBlog", "HomeView", "Categories", new { area = "" }, new { @class = "navbar-brand red-text" })
             </div>
             <div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li>@Html.ActionLink("Home", "HomeView", "Categories")</li>
-					@if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.IsInRole("Editor"))
-					{
-						<li>@Html.ActionLink("Posts", "Index", "Posts")</li>
-						
-						<li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                <ul class="nav navbar-nav">
+                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.IsInRole("Editor") )
+                     {<li>@Html.ActionLink("Home", "HomeView", "Categories")</li>}
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.IsInRole("Editor"))
+    {
+                <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
 
-					}
-						@if (User.IsInRole("Admin")  || User.IsInRole("Moderator"))
-						{<li>@Html.ActionLink("Comments", "Index", "Comments")</li>
-							<li>@Html.ActionLink("Reports", "Index", "Reports")</li>
-						}
-						@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator") || User.IsInRole("User")))
-						{
-							<li>
-								<a href="/Posts/Create">
-									@*@Html.ActionLink("Create new", "Create", "Posts", null,new { @class = "btn btn-danger" })*@
-									<button class="btn btn-danger" style="padding: 0px;padding-left: 5px;padding-right: 5px;margin:0px">Create Post</button>
+                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
 
-								</a>
-							</li>
-						}
-					</ul>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    {
+                <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+                <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    }
+                    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                    {
+                          <li> @Html.ActionLink("Accounts", "Index", "Account") </li>
+                    }
+
+
+                    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator")))
+
+                    {
+
+                    <li>
+
+                        <a href = "/Posts/Create">
+                @*@Html.ActionLink("Create new", "Create", "Posts", null,new { @class = "btn btn-danger" })*@
+                    <button class="btn btn-danger" style="padding: 0px;padding-left: 5px;padding-right: 5px;margin:0px">Create Post</button>
+
+                    </a>
+                    </li>
+                    }
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

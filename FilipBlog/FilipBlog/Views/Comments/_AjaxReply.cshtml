@@ -37,14 +37,14 @@
 			contentType: 'application/json; charset=utf-8',
 			success: function (data) {
 				refreshComments();
-				$(".repliesContainer." + $(this).attr("data-parent-comment-id")).show();
-				$(".js-see-replies." + $(this).attr("data-parent-comment-id")).html("Hide replies");
+				//$(".repliesContainer." + $(this).attr("data-parent-comment-id")).show();
+				//$(".js-see-replies." + $(this).attr("data-parent-comment-id")).html("Hide replies");
 			},
 			error: function (data) {
 				//alert("POST error");
 				refreshComments();
-				$(".repliesContainer." + $(this).attr("data-parent-comment-id")).show();
-				$(".js-see-replies." + $(this).attr("data-parent-comment-id")).html("Hide replies");
+				//$(".repliesContainer." + $(this).attr("data-parent-comment-id")).show();
+				//$(".js-see-replies." + $(this).attr("data-parent-comment-id")).html("Hide replies");
 			}
 		});
 

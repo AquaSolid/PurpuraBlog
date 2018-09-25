@@ -144,15 +144,26 @@
 	border: solid var(--main-purple-color) 2px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
+    background-color: white;
 }
 
 .paddingDiv {
 	margin-top: 15px;
-	padding: 20px 30px 0px 30px;
+	padding: 20px 30px 20px 30px;
 	border-left: 5px solid var(--main-red-color);
 	border-radius: 5px;
 }
 
 .white-text, .white-text a, .white-text a:visited, {
 	color: white;
+}
+
+.tiny-note
+{
+    text-align:center;
+    font-size:8px;
+}
+
+a:hover{
+    color: var(--main-purple-color);
 }

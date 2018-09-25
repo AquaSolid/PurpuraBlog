@@ -4,7 +4,7 @@
 <div>
 	<img class="img-responsive" style="height: 25px; width: 25px; display: inline" src="@Model.ImageURLs.FirstOrDefault()" alt="Alternate Text" />
 	<span style="font-size: 10px;" class="red-text">
-		@Html.ActionLink(Model.Title, "Details", "Posts", new { id = Model.PostId })
+		@Html.ActionLink(Model.Title, "Details", "Posts", new { id = Model.PostId },null)
 	</span>
 	
 	<span style="font-size: 8px; float:right">(by <i>@Html.ActionLink(Model.Author.FullName(), "Details", "ApplicationUsers", new { id = Model.AuthorRefId }, null) </i>)</span>

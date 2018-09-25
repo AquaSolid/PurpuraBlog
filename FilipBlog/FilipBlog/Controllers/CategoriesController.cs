@@ -43,7 +43,7 @@ namespace FilipBlog.Controllers
 		}
 
 		// GET: Categories/Create
-		[Authorize(Roles = "Admin, Editor")]
+		[Authorize(Roles = "Admin, Moderator")]
 		public ActionResult Create()
 		{
 			return View();
@@ -54,7 +54,7 @@ namespace FilipBlog.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Editor")]
+		[Authorize(Roles = "Admin, Moderator")]
 		public ActionResult Create([Bind(Include = "CategoryID,Name,DateOfCreation,DateOfModification")] Category category)
 		{
 			if (ModelState.IsValid)
@@ -68,7 +68,7 @@ namespace FilipBlog.Controllers
 		}
 
 		// GET: Categories/Edit/5
-		[Authorize(Roles = "Admin, Editor")]
+		[Authorize(Roles = "Admin,Moderator")]
 		public ActionResult Edit(int? id)
 		{
 			if (id == null)
@@ -134,6 +134,7 @@ namespace FilipBlog.Controllers
 			}
 			base.Dispose(disposing);
 		}
+
 		public ActionResult AllPostsFrom(int id)
 		{
 			List<Post> posts;
@@ -142,7 +143,7 @@ namespace FilipBlog.Controllers
 			posts.Reverse();
 			return PartialView("_PostList", posts);
 		}
-
+        [Authorize]
 		public ActionResult HomeView()
 		{
 			return View(db.Categories.ToList());

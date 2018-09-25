@@ -10,19 +10,23 @@
 		<div>
 
 			@if (User.Identity.IsAuthenticated)
-			{
-				if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator") || User.Identity.GetUserId().Equals(Model.AuthorRefId))
-				{
-					<div class="post-brick-controls" style="">
+                        {
+                            if (User.IsInRole("Admin") ||( User.IsInRole("Editor")&& User.Identity.GetUserId().Equals(Model.AuthorRefId)) || User.IsInRole("Moderator") )
+            
+                {
+
+                    <div class="post-brick-controls" style="">
 						<a href="/Posts/Edit/@Model.PostId">
-							<button class="btn btn-xs  purpleButton" data-post-id=@Model.PostId><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+
+                            <button class="btn btn-xs  purpleButton" data-post-id=@Model.PostId><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 						</a>
 						<a href="/Posts/Delete/@Model.PostId">
-							<button class="btn btn-xs btn-danger" data-post-id=@Model.PostId><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button><br />
+
+                            <button class="btn btn-xs btn-danger" data-post-id=@Model.PostId><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button><br />
 						</a>
 					</div>
 				}
-			}
+            }
 
 			<h4 class="post-title">@Html.ActionLink(Model.Title, "Details", "Posts", new { id = Model.PostId }, null)</h4>
 		</div>

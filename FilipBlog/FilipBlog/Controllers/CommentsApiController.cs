@@ -113,23 +113,26 @@ namespace FilipBlog.Controllers
         [ResponseType(typeof(Comment))]
         public IHttpActionResult DeleteComment(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return NotFound();
+            
+                Comment comment = db.Comments.Find(id);
+                if (comment == null)
+                {
+                    return NotFound();
+                }
+
+             try
+            {   comment.Commenter.PostsCommentedOn.Remove(comment.Post);
+
+
+                if (comment.ParentComment_CommentId == 0)
+                {
+                    db.Comments.RemoveRange(comment.Replies);
+                }
+                db.Entry(comment).State = EntityState.Deleted;
+                db.Comments.Remove(comment);
+                db.SaveChanges();
             }
-
-            comment.Commenter.PostsCommentedOn.Remove(comment.Post);
-       
-
-            if (comment.ParentComment_CommentId == 0)
-            {
-                db.Comments.RemoveRange(comment.Replies);
-            }
-           db.Entry(comment).State = EntityState.Deleted;
-            db.Comments.Remove(comment);
-            db.SaveChanges();
-
+            catch (Exception e) { }
 
             return Ok(comment);
         }

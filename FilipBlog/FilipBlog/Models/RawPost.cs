@@ -35,24 +35,29 @@ namespace FilipBlog.Models
            
             this.RawImageURLs = String.Join(Environment.NewLine, Post.ImageURLs.Select(image => image.URL).ToArray());
             this.RawVideoURLs = String.Join(Environment.NewLine, Post.VideoURLs.Select(video => video.URL).ToArray());
-            if (RawImageURLs == null) RawImageURLs = "";
-            if (RawVideoURLs == null) RawVideoURLs = "";
+           // if (RawImageURLs == null) RawImageURLs = "";
+           // if (RawVideoURLs == null) RawVideoURLs = "";
         }
 
        
 
         public void updatePost (int postId, List <Category> categoriesFromDB)
         {
-       Post.ImageURLs=RawImageURLs
-                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .ToList()
-                    .Select(str => new ImageLink { URL = str, PostRefId = postId })
-                    .ToList();
-           Post.VideoURLs = RawImageURLs
-                   .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .ToList()
-                    .Select(str => new VideoLink { URL = str, PostRefId = postId })
-                    .ToList();
+            if (RawImageURLs != null)
+                Post.ImageURLs = RawImageURLs
+                             .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                             .ToList()
+                             .Select(str => new ImageLink { URL = str, PostRefId = postId })
+                             .ToList();
+            else Post.ImageURLs = new List<ImageLink>();
+
+            if (RawVideoURLs != null)
+                Post.VideoURLs = RawVideoURLs
+                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                         .ToList()
+                         .Select(str => new VideoLink { URL = str, PostRefId = postId })
+                         .ToList();
+            else Post.VideoURLs = new List<VideoLink>();
 
             Post.Categories = categoriesFromDB.Where(cDB =>
             RawCategories.Where(c => c.IsSelected).Select(c => c.CategoryName).Contains(cDB.Name)).ToList();

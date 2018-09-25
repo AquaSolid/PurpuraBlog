@@ -45,6 +45,7 @@
             <div>
                 <a href="#comments">Comments</a>
             </div>
+
             @if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator") || User.Identity.GetUserId().Equals(Model.Id))
             { <div>
                 <a href="#reports">Reports</a>
@@ -94,8 +95,9 @@
         </div>
 
         <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Back to List", "Index")
+            @if (User.Identity.GetUserId().Equals(Model.Id) || User.IsInRole("Admin"))
+            { @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+            }
         </p>
         <hr />
         <div id="posts">
@@ -131,14 +133,16 @@
 
         </div>
         <hr />
-        @if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator") || User.Identity.GetUserId().Equals(Model.Id))
+        @if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.IsInRole("Editor"))
         {<div id="reports">
             <h2 class="redText">Reports:</h2>
             @foreach (var post in Model.PostsReported)
             {
             <div>
                 @Html.Partial("~/Views/Posts/_Basic.cshtml", post)
-                <button class="deletePost" data-Post-Id=@post.PostId> Delete</button>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                {<button class="deletePost" data-Post-Id=@post.PostId> Delete</button>}
             </div>
 
             }

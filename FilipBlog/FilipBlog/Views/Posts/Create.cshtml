@@ -35,23 +35,26 @@
 		</div>
 		<div class="form-group">
 			@Html.LabelFor(model => model.Post.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Post.Content, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Post.Content, "", new { @class = "text-danger" })
-			</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Post.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Post.Content, "", new { @class = "text-danger" })
+                <span class="tiny-note">Html tags are also supported</span>
+            </div>
 		</div>
 		<div class="form-group">
 			@Html.LabelFor(model => model.RawImageURLs, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.RawImageURLs, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.RawImageURLs, "", new { @class = "text-danger" })
-			</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RawImageURLs, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RawImageURLs, "", new { @class = "text-danger" })
+                <span class="tiny-note">Enter image urls separated by new lines</span>
+            </div>
 		</div>
 		<div class="form-group">
 			@Html.LabelFor(model => model.RawVideoURLs, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
 				@Html.EditorFor(model => model.RawVideoURLs, new { htmlAttributes = new { @class = "form-control" } })
 				@Html.ValidationMessageFor(model => model.RawVideoURLs, "", new { @class = "text-danger" })
+                <span class="tiny-note">Enter video urls separated by new lines</span>
 			</div>
 		</div>
 		<hr />
