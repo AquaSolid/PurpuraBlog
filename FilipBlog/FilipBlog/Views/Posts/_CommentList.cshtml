@@ -113,15 +113,15 @@
 
 </script>
 
-<table class="table table-bordered">
+<table class="table tableRoundedCorners" >
 
     @foreach (var item in Model)
     {
         if (item.ParentComment_CommentId == 0)
         {
-            <tr class="commentRow">
+            <tr class="commentRow" >
 
-                <td>
+                <td style="width:20%">
                     <img src=@item.Commenter.ProfilePictureURL class="commenterProfilePhoto img-circle">
                     @Html.ActionLink(item.Commenter.FullName(), "Details", "Accounts", new { id = item.CommenterRefId })
 
@@ -130,10 +130,8 @@
 
                 <td class="col-md-9">
                     <div>
-
-
                         <p class="currentContent @item.CommentId" style="font-size: 18px">@item.Content</p>
-                        <input type="text" hidden="hidden" class="editField @item.CommentId" value=@item.Content>
+                        <input type="text" hidden="hidden" class="editField @item.CommentId " value=@item.Content>
                     </div>
                     <div>
                         @item.howLongAgo()
@@ -156,14 +154,11 @@
                         {
                             <button data-comment-id=@item.CommentId class="btn-link js-delete @item.CommentId">Delete</button>
                         }
-
-
                     </div>
+					<br />
 
                     <div class="repliesContainer @item.CommentId" hidden="hidden">
                         @Html.Partial("~/Views/Comments/_RepliesList.cshtml", item)
-
-
                     </div>
 
                     <div class="replyInput @item.CommentId" hidden="hidden">

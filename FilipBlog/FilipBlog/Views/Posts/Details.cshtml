@@ -5,156 +5,170 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<div class="content">
-	<h2>@Model.Title</h2>
-	<blockquote>@Html.DisplayFor(model => model.Subtitle)</blockquote>
-	<span class="glyphicon glyphicon-time"></span>@Html.DisplayFor(model => model.DateOfModification)
-	<span class="glyphicon glyphicon-user" style="margin-left: 30px"></span> @Html.ActionLink(Model.Author.FullName(), "Details", "ApplicationUsers", new { id = Model.Author.Id }, null)
-	<span class="glyphicon glyphicon-tag" style="margin-left: 30px"></span>
 
-	@foreach (var category in Model.Categories)
-	{
-		<span style="margin-right: 30px">@Html.DisplayFor(item => category.Name)</span>
-	}
+<div class="center-block" style="width: 75%;">
 
-
-	<hr />
-	<div class="text-justify" style="margin-left: 30px; margin-right:30px;font-size: 17px">
-		@Html.DisplayFor(model => model.Content)
-	</div>
-	<br />
-	@*<div style="float:right;">
-			@Html.Partial("~/Views/Shared/_TopPostList.cshtml")
-		</div>*@
-</div>
+	<div class="content">
+		<h2>@Model.Title</h2>
+		<blockquote>@Html.DisplayFor(model => model.Subtitle)</blockquote>
 
 
 
+		<span class="glyphicon glyphicon-time"></span>@Html.DisplayFor(model => model.DateOfModification)
+		<span class="glyphicon glyphicon-user" style="margin-left: 30px"></span> @Html.ActionLink(Model.Author.FullName(), "Details", "ApplicationUsers", new { id = Model.Author.Id }, null)
 
-
-@if (Model.ImageURLs.Count > 1)
-{<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-
-
-
-			@for (int i = 1; i < Model.ImageURLs.Count; i++)
-			{
-				<li data-target="#myCarousel" data-slide-to="@i"></li>
-			}
-
-		</ol>
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-
-
-			<div class="item active ">
-				<img style="height: 500px" class="img-thumbnail center-block" src=@Model.ImageURLs.ElementAt(0).URL>
-			</div>
-
-			@for (int i = 1; i < Model.ImageURLs.Count; i++)
-			{
-				<div class="item">
-					<img style="height: 500px" class="img-thumbnail center-block" src=@Model.ImageURLs.ElementAt(i).URL>
-				</div>
-			}
-
+		<div class="post-brick-controls" style="display:inline;">
+			<a href="/Posts/Edit/@Model.PostId">
+				<button class="btn btn-xs btn-info " data-post-id=@Model.PostId><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+			</a>
+			<a href="/Posts/Delete/@Model.PostId">
+				<button class="btn btn-xs btn-danger" data-post-id=@Model.PostId><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			</a>
 		</div>
 
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
+		<span class="glyphicon glyphicon-tag" style="margin-left: 30px"></span>
 
-
-
-}
-
-else if (Model.ImageURLs.Count == 1)
-{
-	<img src=@Model.ImageURLs.ElementAt(0).URL>
-}
-
-<div>
-	@*  @foreach (var VideoUrl in Model.VideoURLs)
+		@foreach (var category in Model.Categories)
 		{
-
-			<iframe class="youtube-video" width="560" height="315"
-					src="@VideoUrl.URL"
-					frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
+			<span style="margin-right: 30px">@Html.DisplayFor(item => category.Name)</span>
+		}
+		<hr />
 
 
-			<p>@VideoUrl.URL</p>*@
-</div>
-<br />
+		<div class="img-responsive center-block text-center">
+			@foreach (var video in Model.VideoURLs)
+			{
 
-<div>
-	@if (User.Identity.GetUserId() == Model.AuthorRefId || User.IsInRole("Admin") || User.IsInRole("Editor"))
-	{
-		@Html.ActionLink("Edit", "Edit", new { id = Model.PostId }, new { @class = "btn btn-default" }) <span> | </span>
-		@Html.ActionLink("Delete", "Delete", new { id = Model.PostId }, new { @class = "btn btn-default" }) <span> | </span>
-	}
-	@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" }) |
-	@Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, new { @class = "btn btn-warning" })
-	<hr />
-	<h2>Likes:</h2>
-	<div id="likesDislikes">
-		@Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
+				<iframe class="youtube-video" width="560" height="315"
+						src="https://www.youtube.com/embed/@video.YoutubeId()?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=0"
+						frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			}
+		</div>
+
+		<div class="text-justify" style="margin-left: 30px; margin-right:30px;font-size: 17px">
+			@*@Html.DisplayFor(model => model.Content)*@
+			@Html.Raw(Model.Content)
+		</div>
+		<br />
+		@*<div style="float:right;">
+				@Html.Partial("~/Views/Shared/_TopPostList.cshtml")
+			</div>*@
 	</div>
-	@Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+
+
+
+
+
+	@if (Model.ImageURLs.Count > 1)
 	{
-		UpdateTargetId = "likesDislikes",
-		InsertionMode = InsertionMode.Replace,
-		HttpMethod = "GET"
-	}, new { @class = "btn btn-success" })
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 
-	@Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+				@for (int i = 1; i < Model.ImageURLs.Count; i++)
+				{
+					<li data-target="#myCarousel" data-slide-to="@i"></li>
+				}
+
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+
+
+				<div class="item active ">
+					<img style="height: 500px" class="img-thumbnail center-block" src=@Model.ImageURLs.ElementAt(0).URL>
+				</div>
+
+				@for (int i = 1; i < Model.ImageURLs.Count; i++)
+				{
+					<div class="item">
+						<img style="height: 500px" class="img-thumbnail center-block" src=@Model.ImageURLs.ElementAt(i).URL>
+					</div>
+				}
+
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+
+
+	}
+
+	else if (Model.ImageURLs.Count == 1)
 	{
-		UpdateTargetId = "likesDislikes",
-		InsertionMode = InsertionMode.Replace,
-		HttpMethod = "GET"
-	}, new { @class = "btn btn-danger" })
-
-</div>
-
-<hr />
-<h2>Comments:</h2>
-
-@Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment()
-	{
-		Post_PostId = Model.PostId,
-		CommenterRefId = User.Identity.GetUserId()
-	})
-<br />
-<div id="comments">
-	
-
-	@Html.Partial("~/Views/Posts/_CommentList.cshtml", Model.Comments)
+		<img class="img-responsive text-center center-block" src=@Model.ImageURLs.ElementAt(0).URL>
+	}
 	<br />
-</div>
+	<div>
+		@if (User.Identity.GetUserId() == Model.AuthorRefId || User.IsInRole("Admin") || User.IsInRole("Editor"))
+		{
+			@Html.ActionLink("Edit", "Edit", new { id = Model.PostId }, new { @class = "btn btn-default" }) <span> | </span>
+			@Html.ActionLink("Delete", "Delete", new { id = Model.PostId }, new { @class = "btn btn-default" }) <span> | </span>
+		}
+		@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" }) |
+		@Html.ActionLink("Report", "Create", "Reports", new { postId = Model.PostId }, new { @class = "btn btn-warning" })
+		<span style="float:right;">
+			<span id="likesDislikes">
+				@Html.Partial("~/Views/Posts/_LikeDislikeCount.cshtml", Model)
+			</span>
+			@Ajax.ActionLink("Like", "LikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+			{
+				UpdateTargetId = "likesDislikes",
+				InsertionMode = InsertionMode.Replace,
+				HttpMethod = "GET"
+			}, new { @class = "btn btn-xs btn-danger" })
+
+			@Ajax.ActionLink("Dislike", "DislikePost", "Posts", new { postId = Model.PostId }, new AjaxOptions
+			{
+				UpdateTargetId = "likesDislikes",
+				InsertionMode = InsertionMode.Replace,
+				HttpMethod = "GET"
+			}, new { @class = "btn btn-xs purpleButton" })
+		</span>
+		<hr />
 
 
 
-<br />
+	</div>
 
-@if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator"))
-{
 	<hr />
-	<h2>Reports:</h2>
-	@Html.Action("ViewReports", "Reports", new { postId = Model.PostId })
-}
+	<h3>Comments:</h3>
+
+	@Html.Partial("~/Views/Comments/_AjaxCreate.cshtml", new FilipBlog.Models.Comment()
+		{
+			Post_PostId = Model.PostId,
+			CommenterRefId = User.Identity.GetUserId()
+		})
+	<br />
+	<div id="comments">
+		@Html.Partial("~/Views/Posts/_CommentList.cshtml", Model.Comments)
+		<br />
+	</div>
 
 
+
+	<br />
+
+	@if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator"))
+	{
+		<hr />
+		<h2>Reports:</h2>
+		@Html.Action("ViewReports", "Reports", new { postId = Model.PostId })
+	}
+
+
+</div>
 
 @section scripts {
 	@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")

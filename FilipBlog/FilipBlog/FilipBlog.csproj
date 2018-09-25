@@ -586,10 +586,11 @@
     <Content Include="Views\Shared\_PostList.cshtml" />
     <Content Include="Views\Reports\_ViewReports.cshtml" />
     <Content Include="Views\ApplicationUsers\_ProfilePic.cshtml" />
-    <Content Include="Views\Shared\_LikeDislikeCount.cshtml" />
     <Content Include="Views\ApplicationUsers\_DisplayPhoto.cshtml" />
     <Content Include="Views\Shared\_TopPostList.cshtml" />
     <Content Include="Views\Shared\_TopBasic.cshtml" />
+    <Content Include="Views\Shared\_TopAuthorsList.cshtml" />
+    <Content Include="Views\Shared\_TopAuthorBasic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

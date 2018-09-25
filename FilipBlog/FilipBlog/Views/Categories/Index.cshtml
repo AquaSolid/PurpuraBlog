@@ -39,7 +39,7 @@
 				</td>
 				<td>
 					@Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "btn btn-xs btn-primary" })
-					@if (User.IsInRole("Admin") || User.IsInRole("Editor") || User.IsInRole("Moderator"))
+					@if (User.IsInRole("Admin") ||  User.IsInRole("Moderator"))
 					{
 					@Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-xs btn-default" }) <span> </span>
 					@Html.ActionLink("Delete", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-xs btn-danger" })

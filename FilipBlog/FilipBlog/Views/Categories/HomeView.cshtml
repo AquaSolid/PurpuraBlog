@@ -4,57 +4,76 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Scripts/Site.css")
 <script>
-    $(document).ready(function () {
-        $(".categoryButton").click(function () {
+	$(document).ready(function () {
+		$(".categoryButton.0").addClass("activeButton");
 
-            $.ajax({
-
-                url: $(".categoryButton." + $(this).attr("data-Category-id")).data('url'),
-                type: 'GET',
-
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $('#postsFromCategory').empty();
-                    $('#postsFromCategory').append(data);
+		$(".categoryButton").click(function () {
 
 
-                },
+			$.ajax({
 
-                error: function (data) {
-                    $('#postsFromCategory').empty();
-                    $('#postsFromCategory').append(data);
-                }
-            });
+				url: $(".categoryButton." + $(this).attr("data-Category-id")).data('url'),
+				type: 'GET',
 
-    });
-    });
+				contentType: 'application/json; charset=utf-8',
+				success: function (data) {
+					$('#postsFromCategory').empty();
+					$('#postsFromCategory').append(data);
+
+
+				},
+
+				error: function (data) {
+					$('#postsFromCategory').empty();
+					$('#postsFromCategory').append(data);
+				}
+			});
+			$(".activeButton").removeClass("activeButton");
+			$(this).addClass("activeButton");
+			$("#categoryTitle").text("Posts from category: " + $(this).attr("data-Category-name"));
+		});
+	});
 </script>
+
 <div class="row">
-    <div class=" purpleBackground whiteText profileSidebar" style="padding: 15px; width: 200px;">
+	<div class="col-md-2 profileSidebar  whiteText">
 
-        <div class="btn btn-block btn-danger categoryButton 0" data-Category-id="0" data-url='@Url.Action("AllPostsFrom","Categories", new {id = 0 } )'>All</div>
-        @foreach (Category c in Model)
-        {
+		<div class="btn btn-block categoryButton  0" data-Category-id="0" data-Category-name="All" data-url='@Url.Action("AllPostsFrom","Categories", new {id = 0 } )'>All</div>
+		@foreach (Category c in Model)
+		{
 
-            <div  class="btn btn-block btn-info categoryButton @c.CategoryID" data-Category-id="@c.CategoryID" data-url='@Url.Action("AllPostsFrom","Categories", new {id = c.CategoryID } )'>@c.Name</div>
-        }
+			<div class="btn btn-block greyBackground categoryButton @c.CategoryID" data-Category-name="@c.Name" data-Category-id="@c.CategoryID" data-url='@Url.Action("AllPostsFrom","Categories", new {id = c.CategoryID } )'>@c.Name</div>
+		}
 
-    </div>
-    <div class="profileMain">
-        <div id="postsFromCategory" class="col-md-8"  style="padding-top: 10px; padding-left:0px;">
+	</div>
+	<div class="col-md-10 profileMain">
+		<div class="col-md-9" style="padding-left: 0;">
 
-            <h3>Posts from category:</h3>
-			<br />
-            @Html.Action("AllPostsFrom", "Categories", new { id = 0 });
+			<h3 id="categoryTitle" class="redText">Posts from category: All</h3>
 
-        </div>
+			<div id="postsFromCategory">
+				@Html.Action("AllPostsFrom", "Categories", new { id = 0 })
+			</div>
+		</div>
 
-        <div id="topPosts" class="col-md-4" style="padding-top: 10px;">
-			<h4>Top 10 posts</h4>
-            @Html.Action("TopPosts", "Categories", null);
+		<div class="col-md-3 top-post-container">
+			<div class="row">
+				<h4 class="top-post-title">Top 10 posts</h4>
+				<div id="topPosts" class=" top-post-list">
 
+					<table style="border: 1px solid black;">
+						@Html.Action("TopPosts", "Categories", null)
+					</table>
+				</div>
+			</div>
+			<div class="row">
 
-            </div>
-
-    </div>
+				<h4 class="top-post-title">Top 10 authors</h4>
+				<div class="top-post-list">
+					@Html.Action("TopAuthors", "ApplicationUsers")
+				</div>
+			</div>
+		</div>
+	</div>

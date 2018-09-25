@@ -10,9 +10,11 @@ namespace FilipBlog.Models
     [NotMapped]
     public class RawPost
     {
-		[Display(Name="Image URLs")]	
-        public string RawImageURLs { get; set; }
+		[Display(Name = "Image URLs")]
+		[DataType(DataType.MultilineText)]
+		public string RawImageURLs { get; set; }
 		[Display(Name = "Video URLs")]
+		[DataType(DataType.MultilineText)]
 		public string RawVideoURLs { get; set; }
         public Post Post { get; set; }
         public CategoryIntermediate[] RawCategories { get; set; }

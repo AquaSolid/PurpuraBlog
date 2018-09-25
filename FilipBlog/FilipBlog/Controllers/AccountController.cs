@@ -24,9 +24,10 @@ namespace FilipBlog.Controllers
 
 		public AccountController()
 		{
+			//return RedirectToAction("Index", "Account");
 		}
 
-		[Authorize(Roles="Admin")]
+		[Authorize(Roles="Admin, Moderator")]
 		public ActionResult Index()
 		{
 			var users = db.Users;

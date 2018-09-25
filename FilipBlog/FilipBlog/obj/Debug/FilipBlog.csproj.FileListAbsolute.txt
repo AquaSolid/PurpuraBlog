@@ -382,3 +382,259 @@ D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog\FilipBlog\FilipBlog\bi
 D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog\FilipBlog\FilipBlog\bin\System.Web.WebPages.Deployment.xml
 D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog\FilipBlog\FilipBlog\bin\System.Web.WebPages.Razor.xml
 D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.CopyComplete
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\ApplicationInsights.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.dll.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.pdb
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.exe
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.exe.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.rsp
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.exe
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.exe.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.rsp
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.AppContext.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Console.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Compression.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Claims.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.ValueTuple.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.exe
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.exe.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.rsp
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\VBCSCompiler.exe
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Antlr3.Runtime.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.SqlServer.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Web.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Newtonsoft.Json.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Owin.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Net.Http.Formatting.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Helpers.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.WebHost.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Mvc.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Optimization.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Razor.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Razor.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\WebGrease.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Antlr3.Runtime.pdb
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.SqlServer.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Web.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Newtonsoft.Json.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Net.Http.Formatting.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Helpers.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.WebHost.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Mvc.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Optimization.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Razor.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Razor.xml
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csprojResolveAssemblyReference.cache
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.Migrations.initial.resources
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.GenerateResource.cache
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.CoreCompileInputs.cache
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.CopyComplete
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.dll
+C:\Users\Rale\Desktop\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.pdb
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\ApplicationInsights.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.dll.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\FilipBlog.pdb
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.exe
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.exe.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csc.rsp
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.exe
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.exe.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\csi.rsp
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.AppContext.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Collections.Immutable.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Console.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Compression.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.FileSystem.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.IO.Pipes.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Reflection.Metadata.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.AccessControl.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Claims.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.ValueTuple.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XPath.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.exe
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.exe.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\vbc.rsp
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\VBCSCompiler.exe
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\roslyn\VBCSCompiler.exe.config
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Antlr3.Runtime.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.SqlServer.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.DependencyCollector.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Web.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.WindowsServer.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.ApplicationInsights.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Google.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Web.Infrastructure.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Newtonsoft.Json.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Owin.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Net.Http.Formatting.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Helpers.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.WebHost.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Mvc.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Optimization.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Razor.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Deployment.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Razor.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\WebGrease.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Antlr3.Runtime.pdb
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\EntityFramework.SqlServer.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.DependencyCollector.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.Web.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AI.WindowsServer.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Google.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\Newtonsoft.Json.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Net.Http.Formatting.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Helpers.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Http.WebHost.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Mvc.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Optimization.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.Razor.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Deployment.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\bin\System.Web.WebPages.Razor.xml
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csprojAssemblyReference.cache
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.Migrations.initial.resources
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.GenerateResource.cache
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.CoreCompileInputs.cache
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.csproj.CopyComplete
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.dll
+D:\Life\2. Programming-related\5. C# Projects\PurpuraBlog-gjorgjina\FilipBlog\FilipBlog\obj\Debug\FilipBlog.pdb

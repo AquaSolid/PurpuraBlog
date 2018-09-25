@@ -2,9 +2,9 @@
 @using FilipBlog.Models
 @model List<FilipBlog.Models.Post>
 
-<ul>
+<ol>
 	@foreach (Post post in Model)
 	{
-	<li style="font-size: 18px">@Html.Partial("~/Views/Shared/_TopBasic.cshtml", post)</li>
+	<li class="top-post-list-element">@Html.Partial("~/Views/Shared/_TopBasic.cshtml", post)</li>
 	}
-</ul>
+</ol>

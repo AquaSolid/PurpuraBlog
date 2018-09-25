@@ -99,13 +99,13 @@
 
 </script>
 
-<table class="table table-bordered">
+<table class="table tableRoundedCorners">
 
     @foreach (var item in Model.Replies)
     {
         <tr>
 
-            <td>
+            <td style="width:30%">
                 <img src=@item.Commenter.ProfilePictureURL class="commenterProfilePhoto img-circle">
 
                 @Html.ActionLink(item.Commenter.FullName(), "Details", "Accounts", new { id = item.CommentId })

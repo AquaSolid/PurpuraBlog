@@ -148,5 +148,17 @@ namespace FilipBlog.Controllers
 		{
 			return PartialView("_DisplayPhoto", db.Users.Find(userId));
 		}
+        public ActionResult TopAuthors ()
+        { List<ApplicationUser> top = db.Users.ToList().OrderByDescending
+              (x => x.PostsAuthored.Count
+              + x.PostsAuthored.Select(y => y.Likers.Count).Sum()
+              - x.PostsAuthored.Select(y => y.Dislikers.Count).Sum()
+              + x.PostsAuthored.Select(y => y.Comments.Count).Sum())
+              .Take(10)
+              .ToList();
+            return PartialView("_TopAuthorsList", top);
+        }
+
+
 	}
 }
